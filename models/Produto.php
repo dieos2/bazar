@@ -35,9 +35,9 @@ class Produto extends \yii\db\ActiveRecord
     {
         return [
             [['nome', 'descricao', 'preco', 'data', 'id_user', 'foto'], 'required'],
-            [['preco'], 'number'],
+            [['preco', 'preco_custo'], 'number'],
             [['data'], 'safe'],
-            [['id_user', 'novo'], 'integer'],
+            [['id_user', 'novo', 'vendido'], 'integer'],
             [['nome', 'foto'], 'string', 'max' => 150],
             [['descricao'], 'string', 'max' => 500],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
@@ -58,6 +58,8 @@ class Produto extends \yii\db\ActiveRecord
             'id_user' => 'Id User',
             'foto' => 'Foto',
             'novo' => 'Novo',
+            'vendido' => 'Vendido',
+             'preco_custo' => 'Preco Custo',
         ];
     }
 

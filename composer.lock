@@ -1,11 +1,68 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "99c529267dd63216edf0f20c15fcb4a1",
+    "content-hash": "e39787e901c4f3c5fbf91ead2e153726",
     "packages": [
+        {
+            "name": "2amigos/yii2-qrcode-helper",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/2amigos/yii2-qrcode-helper.git",
+                "reference": "ca8fe29907d0c80a6419d20b2c7e1de7bbad1f20"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/2amigos/yii2-qrcode-helper/zipball/ca8fe29907d0c80a6419d20b2c7e1de7bbad1f20",
+                "reference": "ca8fe29907d0c80a6419d20b2c7e1de7bbad1f20",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "dosamigos\\qrcode\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "2amigOS! Consulting Group",
+                    "email": "hola@2amigos.us",
+                    "homepage": "http://2amigos.us",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Create QrCodes based on libqrencode C library.",
+            "homepage": "http://yiiwheels.com/extension/qrcode-helper",
+            "keywords": [
+                "2amigos",
+                "extension",
+                "helper",
+                "qrcode",
+                "yii",
+                "yii 2",
+                "yii2"
+            ],
+            "time": "2016-09-10 19:40:19"
+        },
         {
             "name": "bower-asset/bootstrap",
             "version": "v3.3.5",
@@ -273,7 +330,7 @@
                 "markdown",
                 "markdown-extra"
             ],
-            "time": "2015-03-20 11:07:08"
+            "time": "2015-03-20T11:07:08+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -317,7 +374,7 @@
             "keywords": [
                 "html"
             ],
-            "time": "2013-11-30 08:25:19"
+            "time": "2013-11-30T08:25:19+00:00"
         },
         {
             "name": "kartik-v/mpdf",
@@ -360,7 +417,7 @@
                 "php",
                 "utf-8"
             ],
-            "time": "2015-06-18 15:13:20"
+            "time": "2015-06-18T15:13:20+00:00"
         },
         {
             "name": "kartik-v/yii2-krajee-base",
@@ -406,7 +463,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-11-22 06:35:23"
+            "time": "2015-11-22T06:35:23+00:00"
         },
         {
             "name": "kartik-v/yii2-mpdf",
@@ -453,7 +510,7 @@
                 "utf8",
                 "yii2"
             ],
-            "time": "2015-12-03 14:15:23"
+            "time": "2015-12-03T14:15:23+00:00"
         },
         {
             "name": "kartik-v/yii2-widget-activeform",
@@ -465,7 +522,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-activeform/zipball/59a224de3104552c55de3a6aa67138ee1b73fd70",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-activeform/zipball/1ccb21990894bf99cac2ab58605055b40ed18a7b",
                 "reference": "1ccb21990894bf99cac2ab58605055b40ed18a7b",
                 "shasum": ""
             },
@@ -500,7 +557,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-11-01 10:14:48"
+            "time": "2015-11-01T10:14:48+00:00"
         },
         {
             "name": "mpdf/mpdf",
@@ -547,7 +604,7 @@
                 "php",
                 "utf-8"
             ],
-            "time": "2015-06-17 07:26:51"
+            "time": "2015-06-17T07:26:51+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -600,7 +657,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2015-09-04 05:47:20"
+            "time": "2015-09-04T05:47:20+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -688,7 +745,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2015-08-05 22:00:30"
+            "time": "2015-08-05T22:00:30+00:00"
         },
         {
             "name": "yiisoft/yii2-authclient",
@@ -736,7 +793,7 @@
                 "oauth",
                 "yii2"
             ],
-            "time": "2015-12-15 10:24:41"
+            "time": "2015-12-15T10:24:41+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -748,7 +805,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/3b792412bd0fdfef4e48aff3781279e28dfd19a4",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/7644ecbc447907bac1e29fc6babc4b5e747523dd",
                 "reference": "7644ecbc447907bac1e29fc6babc4b5e747523dd",
                 "shasum": ""
             },
@@ -786,7 +843,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2015-11-20 18:20:01"
+            "time": "2015-11-20T18:20:01+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -798,7 +855,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/574dcb1d101ae55be230e0c00a2428af6ec4c5c1",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/87cd1f2e0dd454a837607de612b1057840effe8b",
                 "reference": "87cd1f2e0dd454a837607de612b1057840effe8b",
                 "shasum": ""
             },
@@ -833,7 +890,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2015-09-25 10:48:24"
+            "time": "2015-09-25T10:48:24+00:00"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -845,7 +902,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-swiftmailer/zipball/2cca1bb86444a6438b0720f8c60120a400982366",
+                "url": "https://api.github.com/repos/yiisoft/yii2-swiftmailer/zipball/745a045c905cc595ca5698f5cd78fd7a8944c706",
                 "reference": "745a045c905cc595ca5698f5cd78fd7a8944c706",
                 "shasum": ""
             },
@@ -883,7 +940,7 @@
                 "swiftmailer",
                 "yii2"
             ],
-            "time": "2015-09-29 11:01:52"
+            "time": "2015-09-29T11:01:52+00:00"
         }
     ],
     "packages-dev": [
@@ -962,7 +1019,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2015-11-16 08:55:57"
+            "time": "2015-11-16T08:55:57+00:00"
         },
         {
             "name": "phpspec/php-diff",
@@ -996,7 +1053,7 @@
                 }
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
-            "time": "2013-11-01 13:02:21"
+            "time": "2013-11-01T13:02:21+00:00"
         },
         {
             "name": "yiisoft/yii2-codeception",
@@ -1041,7 +1098,7 @@
                 "codeception",
                 "yii2"
             ],
-            "time": "2015-11-20 08:52:21"
+            "time": "2015-11-20T08:52:21+00:00"
         },
         {
             "name": "yiisoft/yii2-debug",
@@ -1088,7 +1145,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2015-11-20 13:52:39"
+            "time": "2015-11-20T13:52:39+00:00"
         },
         {
             "name": "yiisoft/yii2-faker",
@@ -1135,7 +1192,7 @@
                 "faker",
                 "yii2"
             ],
-            "time": "2015-11-15 11:52:16"
+            "time": "2015-11-15T11:52:16+00:00"
         },
         {
             "name": "yiisoft/yii2-gii",
@@ -1188,7 +1245,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2015-11-19 14:53:57"
+            "time": "2015-11-19T14:53:57+00:00"
         }
     ],
     "aliases": [],

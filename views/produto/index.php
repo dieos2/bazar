@@ -11,28 +11,71 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="produto-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    
 
     <p>
         <?= Html::a('Create Produto', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'int',
-            'nome',
-            'descricao',
-            'preco',
-            'data',
-            // 'id_user',
-            // 'foto',
-            // 'novo',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+      <section class="panel panel-default">
+                    <header class="panel-heading">
+                      <span class="label bg-danger pull-right">4 left</span>
+                      Produtos
+                    </header>
+                    <table class="table table-striped m-b-none">
+                      <thead>
+                        <tr>
+                          <th>Nome</th>
+                          <th>Custo</th>
+                            <th>Preço</th>
+                          <th>Novo</th> 
+                          <th>Vendido</th> 
+                          <th width="70"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                           <?php foreach($dataProvider->models as $model){
+   echo' <tr>                    
+                          <td>
+                            <a href="/produto/view/'.$model->int.'">'.$model->nome.'</a>
+                          </td>
+                           <td>R$ '.floatval(str_replace('.', ',', $model->preco_custo)).'</td>
+                          <td>'.floatval(str_replace('.', ',', $model->preco)).'</td>';
+                         ?><?php
+                         if($model->novo){
+                             echo '<td>Não</td>';
+                         }else{
+                             echo '<td>Sim</td>';
+                         }
+                         ?>
+                          <?php
+                         if($model->vendido){
+                             echo '<td>Não</td>';
+                         }else{
+                             echo '<td>Sim</td>';
+                         }
+                         ?>
+   <?php
+                         echo '<td class="text-right">
+                            <div class="btn-group">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-pencil"></i></a>
+                              <ul class="dropdown-menu pull-right">
+                               <li><a href="/produto/view/'.$model->int.'">Detalhes</a></li>
+                                <li><a href="/produto/update/'.$model->int.'">Editar</a></li>
+                                <li><a href="#">Vender</a></li>
+                                <li><a href="#">Deletar</a></li>
+                            
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>';
+   }
+   ?>
+                       
+                      
+                      </tbody>
+                    </table>
+                  </section>
+ 
 
 </div>

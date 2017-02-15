@@ -30,10 +30,11 @@ $modelUsers =  User::findByUsername(Yii::$app->user->identity->username)
         <meta name="description" content="Neon Admin Panel" />
         <meta name="author" content="" />
 
-        <title>Distribuidora | Dashboard</title>
+        <title>Bazar | DasPrimas</title>
         <?php $this->head() ?>
 
         <link href="/css/colorpicker.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="/js/datatables/datatables.css" type="text/css"/>
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
 
 
@@ -261,7 +262,11 @@ $modelUsers =  User::findByUsername(Yii::$app->user->identity->username)
             
         <?php $this->endBody() ?>
                <script src="/js/colorpicker.js" type="text/javascript"></script>
+               <script src="../../js/slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+               <script src="/js/datatables/jquery.dataTables.min.js"></script>
+          
          <script>
+             
     jQuery(function(){
         jQuery("#time-cor_primaria, #time-cor_secundaria").css('width', '7%');
  jQuery('#time-cor_primaria').ColorPicker({

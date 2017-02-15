@@ -12,6 +12,8 @@ use yii\filters\AccessControl;
 use app\models\Uploadform;
 use yii\web\UploadedFile;
 use app\models\User;
+use dosamigos\qrcode\formats\MailTo;
+use dosamigos\qrcode\QrCode;
 /**
  * ProdutoController implements the CRUD actions for Produto model.
  */
@@ -57,8 +59,10 @@ class ProdutoController extends Controller
      */
     public function actionView($id)
     {
+            
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($id)
+           
         ]);
     }
 
@@ -79,6 +83,18 @@ class ProdutoController extends Controller
               $model->id_user = User::findByUsername(Yii::$app->user->identity->username)->id;
                 $model->data = date("Y-m-d H:i:s");   
                 $model->foto = $nome . '.jpg';
+                if($model->novo == "on"){
+                $model->novo = 0;
+                    
+                }else{
+                    $model->novo = 1;
+                }
+                 if($model->vendido == "on"){
+                $model->vendido = 0;
+                    
+                }else{
+                    $model->vendido = 1;
+                }
                 if ($model->save()) {
                 return $this->redirect(['view', 'id' => $model->int]);
              }
@@ -125,7 +141,11 @@ class ProdutoController extends Controller
 
         return $this->redirect(['index']);
     }
-
+ public function actionQrcode()
+    {
+       $mailTo = new MailTo(['email' => 'email@example.com']);
+        return QrCode::png($mailTo->getText());
+    }
     /**
      * Finds the Produto model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -133,6 +153,7 @@ class ProdutoController extends Controller
      * @return Produto the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
+    
     protected function findModel($id)
     {
         if (($model = Produto::findOne($id)) !== null) {

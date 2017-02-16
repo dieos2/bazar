@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 15-Fev-2017 às 20:13
+-- Generation Time: 16-Fev-2017 às 17:52
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -70,6 +70,28 @@ INSERT INTO `aposta` (`id`, `id_confronto`, `id_user`, `data`, `placar_casa`, `p
 (41, 50, 1, '2014-06-24 19:40:09', 2, 1),
 (42, 51, 1, '2014-06-24 19:40:09', 1, 2),
 (43, 52, 1, '2014-06-24 19:40:09', 1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `categoria`
+--
+
+CREATE TABLE IF NOT EXISTS `categoria` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `categoria` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Extraindo dados da tabela `categoria`
+--
+
+INSERT INTO `categoria` (`id`, `categoria`) VALUES
+(1, 'Blusa'),
+(2, 'Vestido'),
+(3, 'Croped'),
+(4, 'Body');
 
 -- --------------------------------------------------------
 
@@ -369,19 +391,20 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `novo` tinyint(1) NOT NULL DEFAULT '0',
   `vendido` double NOT NULL,
   `preco_custo` decimal(10,2) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
   PRIMARY KEY (`int`),
-  KEY `id_user` (`id_user`)
+  KEY `id_user` (`id_user`),
+  KEY `id_categoria` (`id_categoria`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Extraindo dados da tabela `produto`
 --
 
-INSERT INTO `produto` (`int`, `nome`, `descricao`, `preco`, `data`, `id_user`, `foto`, `novo`, `vendido`, `preco_custo`) VALUES
-(12, 'Blusa Cinza', 'Blusa Cinza Manga longa', '10.00', '2017-02-14 18:46:30', 1, '554bca0921e9255c6a64347776892cf4.jpg', 0, 1, '5.00'),
-(13, 'Blusa xadrez', 'Blusa Xadrez de manga', '10.00', '2017-02-15 13:42:13', 1, '18ba5cead42b94a45675beaf06dc25b8.jpg', 0, 1, '5.00'),
-(14, 'Croped', 'Croped rosa ', '10.00', '2017-02-15 13:43:19', 1, '338c4b14bf17b5843cb54a58bbe5f085.jpg', 1, 1, '5.00'),
-(15, 'Blusa Manga', 'Manga longa Cinza', '5.00', '2017-02-15 14:58:59', 1, '8253d967ce30ef6fb95267ff19076b2b.jpg', 0, 1, '2.00');
+INSERT INTO `produto` (`int`, `nome`, `descricao`, `preco`, `data`, `id_user`, `foto`, `novo`, `vendido`, `preco_custo`, `id_categoria`) VALUES
+(12, 'Blusa Cinza', 'Blusa Cinza Manga longa', '10.00', '2017-02-14 18:46:30', 1, '554bca0921e9255c6a64347776892cf4.jpg', 0, 1, '5.00', 1),
+(14, 'Croped', 'Croped rosa ', '10.00', '2017-02-15 13:43:19', 1, '338c4b14bf17b5843cb54a58bbe5f085.jpg', 1, 1, '5.00', 3),
+(15, 'Blusa Manga', 'Manga longa Cinza', '5.00', '2017-02-15 14:58:59', 1, '8253d967ce30ef6fb95267ff19076b2b.jpg', 0, 1, '2.00', 1);
 
 -- --------------------------------------------------------
 
@@ -575,6 +598,7 @@ ALTER TABLE `perfil`
 -- Limitadores para a tabela `produto`
 --
 ALTER TABLE `produto`
+  ADD CONSTRAINT `produto_ibfk_2` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id`),
   ADD CONSTRAINT `produto_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`);
 
 --

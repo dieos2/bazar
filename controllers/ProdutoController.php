@@ -32,6 +32,11 @@ class ProdutoController extends Controller
                         'allow' => true,
                         'roles' => ['@'],
                     ],
+                     [
+                        'actions' => ['view'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
                 ],
             ],
         ];

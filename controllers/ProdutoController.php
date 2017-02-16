@@ -141,10 +141,10 @@ class ProdutoController extends Controller
 
         return $this->redirect(['index']);
     }
- public function actionQrcode()
+ public function actionQrcode($id)
     {
-       $mailTo = new MailTo(['email' => 'email@example.com']);
-        return QrCode::png($mailTo->getText());
+       
+        return QrCode::png('/produto/view/'.$id);
     }
     /**
      * Finds the Produto model based on its primary key value.

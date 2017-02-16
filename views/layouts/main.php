@@ -165,22 +165,22 @@ $modelUsers =  User::findByUsername(Yii::$app->user->identity->username)
                                     <nav class="nav-primary hidden-xs">
                                         <ul class="nav">
                                             <li class="active">
-                                                <a href="/confronto/index/0" class="active">
+                                                <a href="/produto/" class="active">
                                                     <i class="fa fa-bolt icon">
                                                         <b class="bg-danger"></b>
-                                                    </i>  <span>Confrontos</span>
+                                                    </i>  <span>Produto</span>
                                                 </a>
                                             </li>
  
                                            
                                             <li class="">
-                                                <a href="/rank/index/<?php echo $modelUsers->id?>" class="active">
+                                                <a href="/caixa/index/" class="active">
                                                     <i class="fa fa-dashboard icon">
                                                         <b class="bg-danger"></b>
-                                                    </i>  <span>Meus Pontos</span>
+                                                    </i>  <span>Caixa</span>
                                                 </a>
                                             </li>
-                                            <li>
+<!--                                            <li>
                                                 <a href="#layout">
                                                     <i class="fa fa-columns icon">
                                                         <b class="bg-warning"></b>
@@ -202,14 +202,14 @@ $modelUsers =  User::findByUsername(Yii::$app->user->identity->username)
                                                   
                                                  
                                                 </ul>
-                                            </li>
+                                            </li>-->
                                             <li>
-                                                <a href="/rank/getrank">
+                                                <a href="/categoria">
                                                     <i class="fa fa-bars icon">
                                                         <b class="bg-success"></b>
                                                     </i>
 
-                                                    <span>Ranking</span>
+                                                    <span>Categoria</span>
                                                 </a>
 
                                             </li>

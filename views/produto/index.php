@@ -39,20 +39,20 @@ $this->params['breadcrumbs'][] = $this->title;
                           <td>
                             <a href="/produto/view/'.$model->int.'">'.$model->nome.'</a>
                           </td>
-                           <td>R$ '.floatval(str_replace('.', ',', $model->preco_custo)).'</td>
-                          <td>'.floatval(str_replace('.', ',', $model->preco)).'</td>';
+                           <td class="text-warning">R$ '.floatval(str_replace('.', ',', $model->preco_custo)).'</td>
+                          <td class="text-success">R$ '.floatval(str_replace('.', ',', $model->preco)).'</td>';
                          ?><?php
                          if($model->novo){
-                             echo '<td>Não</td>';
+                             echo '<td class="text-danger "><i class="fa fa-heart-o"></i> Não</td>';
                          }else{
-                             echo '<td>Sim</td>';
+                             echo '<td class="text-success"><i class="fa fa-heart"></i> Sim</td>';
                          }
                          ?>
                           <?php
                          if($model->vendido){
-                             echo '<td>Não</td>';
+                             echo '<td class="text-danger "><i class="fa fa-thumbs-down"></i> Não</td>';
                          }else{
-                             echo '<td>Sim</td>';
+                             echo '<td class="text-success"><i class="fa fa-thumbs-up"></i> Sim</td>';
                          }
                          ?>
    <?php

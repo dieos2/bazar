@@ -16,13 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         
-        <?= Html::a('Delete', ['delete', 'id' => $model->int], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
+      
     </p>
       <section class="vbox">
             <header class="header bg-white b-b b-light">
@@ -40,26 +34,26 @@ $this->params['breadcrumbs'][] = $this->title;
                           </a>
                           <div class="clear">
                             <div class="h3 m-t-xs m-b-xs"><?php echo $model->nome ?></div>
-                            <small class="text-muted"><i class="fa fa-map-marker"></i> Blusa</small>
+                            <small class="text-muted"><i class="fa fa-tag"></i> <?php echo $model->idCategoria->categoria ?></small>
                           </div>                
                         </div>
                         <div class="panel wrapper panel-success">
                           <div class="row">
                             <div class="col-xs-4">
                               <a href="#">
-                                <span class="m-b-xs h4 block"><?php echo $model->preco_custo ?></span>
+                                <span class="m-b-xs h4 block ">R$ <?php echo floatval(str_replace('.', ',',$model->preco_custo)) ?></span>
                                 <small class="text-muted">Custo</small>
                               </a>
                             </div>
                             <div class="col-xs-4">
                               <a href="#">
-                                <span class="m-b-xs h4 block"><?php echo $model->preco ?></span>
+                                <span class="m-b-xs h4 block">R$ <?php echo floatval(str_replace('.', ',',$model->preco)) ?></span>
                                 <small class="text-muted">Venda</small>
                               </a>
                             </div>
                             <div class="col-xs-4">
                               <a href="#">
-                                <span class="m-b-xs h4 block"><?php echo $model->preco - $model->preco_custo ?></span>
+                                <span class="m-b-xs h4 block text-success">R$ <?php echo floatval(str_replace('.', ',', $model->preco - $model->preco_custo)) ?></span>
                                 <small class="text-muted">Lucro</small>
                               </a>
                             </div>
@@ -85,12 +79,20 @@ $this->params['breadcrumbs'][] = $this->title;
                              echo '<p>usado</p>';
                          }
                          ?>
+                           <small class="text-uc text-xs text-muted">Vendido</small>
+                         <?php
+                         if($model->vendido){
+                             echo '<p>Não</p>';
+                         }else{
+                             echo '<p>Sim</p>';
+                         }
+                         ?>
                           <small class="text-uc text-xs text-muted">Descrição</small>
                           <p><?php echo $model->descricao ?></p>
                           <div class="line"></div>
                           <small class="text-uc text-xs text-muted">Codigo</small>
                           <p class="m-t-sm">
-                           <img src="<?= Url::to(['produto/qrcode'])?>" />
+                           <img src="<?= Url::to(['produto/qrcode/'.$model->int.''])?>" />
                           </p>
                         </div>
                       </div>

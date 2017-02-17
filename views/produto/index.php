@@ -13,47 +13,49 @@ $this->params['breadcrumbs'][] = $this->title;
 
     
 
-    <p>
-        <?= Html::a('Create Produto', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+   
 
       <section class="panel panel-default">
                     <header class="panel-heading">
-                      <span class="label bg-danger pull-right">4 left</span>
+                      <span class="label bg-danger pull-right"> 
+        <?= Html::a('Create Produto', ['create']) ?>
+    </span>
                       Produtos
                     </header>
                     <table class="table table-striped m-b-none">
                       <thead>
                         <tr>
+                             <th></th> 
+                        
                           <th>Nome</th>
                           <th>Custo</th>
                             <th>Preço</th>
-                          <th>Novo</th> 
-                          <th>Vendido</th> 
+                         
                           <th width="70"></th>
                         </tr>
                       </thead>
                       <tbody>
                            <?php foreach($dataProvider->models as $model){
-   echo' <tr>                    
-                          <td>
-                            <a href="/produto/view/'.$model->int.'">'.$model->nome.'</a>
-                          </td>
-                           <td class="text-warning">R$ '.floatval(str_replace('.', ',', $model->preco_custo)).'</td>
-                          <td class="text-success">R$ '.floatval(str_replace('.', ',', $model->preco)).'</td>';
-                         ?><?php
+   echo' <tr><td class="">';             ?> 
+                          <?php
                          if($model->novo){
-                             echo '<td class="text-danger "><i class="fa fa-heart-o"></i> Não</td>';
+                             echo '<i class="fa fa-heart-o text-danger"></i>';
                          }else{
-                             echo '<td class="text-success"><i class="fa fa-heart"></i> Sim</td>';
+                             echo '<i class="fa fa-heart text-success"></i>';
                          }
                          ?>
                           <?php
                          if($model->vendido){
-                             echo '<td class="text-danger "><i class="fa fa-thumbs-down"></i> Não</td>';
+                             echo '<i class="fa fa-thumbs-down text-danger"></i> ';
                          }else{
-                             echo '<td class="text-success"><i class="fa fa-thumbs-up"></i> Sim</td>';
+                             echo '<i class="fa fa-thumbs-up text-success"></i> ';
                          }
+                         ?><?php echo
+                          '</td><td>
+                            <a href="/produto/view/'.$model->int.'">'.$model->nome.'</a>
+                          </td>
+                           <td class="text-warning">R$ '.floatval(str_replace('.', ',', $model->preco_custo)).'</td>
+                          <td class="text-success">R$ '.floatval(str_replace('.', ',', $model->preco)).'</td>';
                          ?>
    <?php
                          echo '<td class="text-right">

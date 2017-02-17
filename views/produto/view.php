@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </span>
                            
                           </a>
-                          <a href="#" class="btn btn-dark btn-rounded" data-loading-text="Connecting">
+                          <a href="#" class="btn btn-dark btn-rounded" data-toggle="modal" data-target="#myModal" >
                             <i class="fa fa-print"></i> Imprimir
                           </a>
                         </div>
@@ -104,3 +104,66 @@ $this->params['breadcrumbs'][] = $this->title;
               </section>
      </section>
      </section>
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <div class="wrapper" id="divPrint">
+                        <div class="clearfix m-b">
+                          <a href="#" class="pull-left thumb m-r">
+                              <img src="/images/AtelieInvertido.png" class="">
+                          </a>
+                          <div class="clear">
+                            <div class="h3 m-t-xs m-b-xs"><?php echo $model->nome ?></div>
+                            <small class="text-muted"><i class="fa fa-tag"></i> <?php echo $model->idCategoria->categoria ?></small>
+                            
+                         <?php
+                         if($model->novo){
+                             echo '<small><i class="fa fa-tag"></i> Novo</small>';
+                         }else{
+                             echo '<small><i class="fa fa-tag"></i> Usado</small>';
+                         }
+                         ?>
+                         
+                          <small class="text-uc text-xs text-muted">Descrição</small>
+                          <small><i class="fa fa-tag"></i> <?php echo $model->descricao ?></small>
+                          </div>                
+                        </div>
+                        <div class="panel wrapper panel-success">
+                          <div class="row">
+                          
+                              <div class="col-xs-12" style="text-align: center">
+                              <a href="#">
+                                  <span class="m-b-xs h4 block" style="font-size: 50px">R$ <?php echo floatval(str_replace('.', ',',$model->preco)) ?></span>
+                             
+                              </a>
+                            </div>
+                      
+                          </div>
+                        </div>
+                      
+                        <div>
+                          <small class="text-uc text-xs text-muted">Codigo</small>
+                          <p class="m-t-sm">
+                              <img style="width: 100%" src="<?= Url::to(['produto/qrcode/'.$model->int.''])?>" />
+                          </p>
+                          <div class="line"></div>
+                        </div>
+                      </div>
+      </div>
+      <div class="modal-footer">
+           <button type="button"  class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="printArea()" class="btn btn-success" data-dismiss="modal">Imprimir</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+           
+   
+        

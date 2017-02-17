@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use yii\helpers\ArrayHelper;
+use app\models\Categoria;
 
 ?>
 
@@ -21,11 +22,28 @@ use yii\widgets\ActiveForm;
             ]); ?>
     <?= $form->field($model, 'foto')->fileInput() ?>
     <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
-
+                        <div class="form-group field-produto-nome required"> 
+      <button data-toggle="dropdown" class="btn btn-sm btn-default dropdown-toggle">
+                            <span class="dropdown-label">Categoria</span> 
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu dropdown-select">
+                              <?php
+                               foreach (Categoria::find()->all() as $categoria){
+                                   echo '<li class=""><a href="#"><input type="radio" name="Produto[id_categoria]" checked="" value='.$categoria->id.'>'.$categoria->categoria.'</a></li>';
+                               }
+                              ?>
+                              
+                             
+                          </ul>
+                        </div>
+                  
     <?= $form->field($model, 'descricao')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'preco_custo')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'preco')->textInput(['maxlength' => true]) ?>
-                    <div class="form-group">
+                    
+                        <div class="form-group">
                       <label class="col-sm-2 control-label">Novo</label>
                       <div class="col-sm-10">
                         <label class="switch">

@@ -157,7 +157,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                       
                         <div>
-                          
+                          <small class="text-uc text-xs text-muted"></small>
                           <p class="m-t-sm">
                               <img style="width: 100%" src="<?= Url::to(['produto/qrcode/'.$model->int.''])?>" />
                           </p>

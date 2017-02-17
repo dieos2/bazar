@@ -110,28 +110,37 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        
       </div>
       <div class="modal-body">
         <div class="wrapper" id="divPrint">
-                        <div class="clearfix m-b">
-                          <a href="#" class="pull-left thumb m-r">
-                              <img src="/images/AtelieInvertido.png" class="">
+                      <div class="clearfix m-b" style="
+    align-items: center;
+">
+                          <a href="#" class="" style="
+    align-items: center;
+    text-align: center;
+">
+                              <img src="/images/AtelieInvertido.png" class="" style="
+    width: 70%;
+    padding-left: 33%;
+">
                           </a>
-                          <div class="clear">
+                          <div class="clear" style="
+    text-align: center;
+">
                             <div class="h3 m-t-xs m-b-xs"><?php echo $model->nome ?></div>
-                            <small class="text-muted"><i class="fa fa-tag"></i> <?php echo $model->idCategoria->categoria ?></small>
-                            
-                         <?php
+                            <small class="text-muted"><i class="fa fa-tag"></i><?php echo $model->idCategoria->categoria ?> </small>
+                             <?php
                          if($model->novo){
                              echo '<small><i class="fa fa-tag"></i> Novo</small>';
                          }else{
                              echo '<small><i class="fa fa-tag"></i> Usado</small>';
                          }
                          ?>
+                                             
+                            <small><i class="fa fa-tag"></i> <?php echo $model->descricao ?></small>
                          
-                          <small class="text-uc text-xs text-muted">Descrição</small>
-                          <small><i class="fa fa-tag"></i> <?php echo $model->descricao ?></small>
                           </div>                
                         </div>
                         <div class="panel wrapper panel-success">

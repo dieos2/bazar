@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
         
       
     </p>
-      <section class="vbox">
+      <section id="vbox" class="vbox">
             <header class="header bg-white b-b b-light">
               <p>Detalhes Produto</p>
             </header>

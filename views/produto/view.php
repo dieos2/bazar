@@ -166,4 +166,13 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
            
    
-        
+    <script>
+    jQuery(function(){
+        $('#myModal').on('show.bs.modal', function (e) {
+               $('#vbox').hide();  
+})
+  $('#myModal').on('hide.bs.modal', function (e) {
+               $('#vbox').show();  
+})
+    });
+    </script>

@@ -74,9 +74,9 @@ $this->params['breadcrumbs'][] = $this->title;
                           <small class="text-uc text-xs text-muted">Condição</small>
                          <?php
                          if($model->novo){
-                             echo '<p>Novo</p>';
+                             echo '<p>Usado</p>';
                          }else{
-                             echo '<p>usado</p>';
+                             echo '<p>Novo</p>';
                          }
                          ?>
                            <small class="text-uc text-xs text-muted">Vendido</small>
@@ -133,9 +133,9 @@ $this->params['breadcrumbs'][] = $this->title;
                             <small class="text-muted"><i class="fa fa-tag"></i><?php echo $model->idCategoria->categoria ?> </small>
                              <?php
                          if($model->novo){
-                             echo '<small><i class="fa fa-tag"></i> Novo</small>';
-                         }else{
                              echo '<small><i class="fa fa-tag"></i> Usado</small>';
+                         }else{
+                             echo '<small><i class="fa fa-tag"></i> Novo</small>';
                          }
                          ?>
                                              

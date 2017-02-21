@@ -52,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                          }
                          ?><?php echo
                           '</td><td>
-                            <a href="/produto/view/'.$model->int.'">'.$model->nome.'</a>
+                            <a href="/produto/view/'.$model->id.'">'.$model->nome.'</a>
                           </td>
                            <td class="text-warning">R$ '.floatval(str_replace('.', ',', $model->preco_custo)).'</td>
                           <td class="text-success">R$ '.floatval(str_replace('.', ',', $model->preco)).'</td>';
@@ -62,8 +62,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="btn-group">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-pencil"></i></a>
                               <ul class="dropdown-menu pull-right">
-                               <li><a href="/produto/view/'.$model->int.'">Detalhes</a></li>
-                                <li><a href="/produto/update/'.$model->int.'">Editar</a></li>
+                               <li><a href="/produto/view/'.$model->id.'">Detalhes</a></li>
+                                <li><a href="/produto/update/'.$model->id.'">Editar</a></li>
                                 <li><a href="#">Vender</a></li>
                                 <li><a href="#">Deletar</a></li>
                             

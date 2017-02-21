@@ -79,4 +79,10 @@ class Venda extends \yii\db\ActiveRecord
     {
         return $this->hasMany(VendaProduto::className(), ['id_venda' => 'id']);
     }
+      public function getProdutos()
+    {  
+          return $this->hasMany(Produto::className(), ['id' => 'id_produto'])->viaTable('venda_produto',['id_venda' => 'id'])->all();
+//          return $this->hasMany(Inquilino::className(), ['id' => 'id_inquilino'])->viaTable('contrato_inquilino', ['id_contrato' => 'id']);
+         
+    }
 }

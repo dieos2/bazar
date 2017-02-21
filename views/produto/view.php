@@ -6,7 +6,7 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $model app\models\Produto */
 
-$this->title = $model->int;
+$this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Produtos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -60,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
                           </div>
                         </div>
                         <div class="btn-group btn-group-justified m-b">
-                          <a href="/produto/update/<?php echo $model->int ?>" class="btn btn-primary btn-rounded" data-toggle="">
+                          <a href="/produto/update/<?php echo $model->id ?>" class="btn btn-primary btn-rounded" data-toggle="">
                             <span class="text">
                               <i class="fa fa-pencil"></i> Editar
                             </span>
@@ -92,7 +92,7 @@ $this->params['breadcrumbs'][] = $this->title;
                           <div class="line"></div>
                           <small class="text-uc text-xs text-muted">Codigo</small>
                           <p class="m-t-sm">
-                           <img src="<?= Url::to(['produto/qrcode/'.$model->int.''])?>" />
+                           <img src="<?= Url::to(['produto/qrcode/'.$model->id.''])?>" />
                           </p>
                         </div>
                       </div>
@@ -159,7 +159,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div>
                           <small class="text-uc text-xs text-muted"></small>
                           <p class="m-t-sm">
-                              <img style="width: 100%" src="<?= Url::to(['produto/qrcode/'.$model->int.''])?>" />
+                              <img style="width: 100%" src="<?= Url::to(['produto/qrcode/'.$model->id.''])?>" />
                           </p>
                           <div class="line"></div>
                         </div>

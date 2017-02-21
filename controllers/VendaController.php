@@ -58,11 +58,14 @@ class VendaController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($id)
     {
         $model = new venda();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $model->id_caixa = $id;
+        $model->id_cliente = 1;
+        $model->valor = 0;
+        $model->data = date("Y-m-d H:i:s");   
+        if ($model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -71,12 +74,7 @@ class VendaController extends Controller
         }
     }
 
-    /**
-     * Updates an existing venda model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
+   
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);

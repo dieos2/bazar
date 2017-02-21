@@ -35,6 +35,8 @@ $modelUsers =  User::findByUsername(Yii::$app->user->identity->username)
 
         <link href="/css/colorpicker.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="/js/datatables/datatables.css" type="text/css"/>
+        <link rel="stylesheet" href="/js/select2/select2.css" type="text/css" />
+        <link rel="stylesheet" href="/js/select2/theme.css" type="text/css" />
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
 
 
@@ -196,11 +198,14 @@ $modelUsers =  User::findByUsername(Yii::$app->user->identity->username)
                <script src="../../js/slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
                <script src="/js/datatables/jquery.dataTables.min.js"></script>
                <script src="../../js/jquery.PrintArea.js" type="text/javascript"></script>
+               <!-- select2 -->
+<script src="../../js/select2/select2.min.js"></script>
          <script>
              
     jQuery(function(){
         jQuery("#time-cor_primaria, #time-cor_secundaria").css('width', '7%');
-        
+        // $("#select2-option").select2();
+       
  jQuery('#time-cor_primaria').ColorPicker({
 	
 	onShow: function (colpkr) {

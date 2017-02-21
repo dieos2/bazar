@@ -55,7 +55,7 @@ class Produto extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'int' => 'Int',
+            'id' => 'Id',
             'nome' => 'Nome',
             'descricao' => 'Descricao',
             'preco' => 'Preco',

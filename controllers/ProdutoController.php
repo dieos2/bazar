@@ -101,7 +101,7 @@ class ProdutoController extends Controller
                     $model->vendido = 1;
                 }
                 if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->int]);
+                return $this->redirect(['view', 'id' => $model->id]);
              }
              
                 }
@@ -126,7 +126,7 @@ class ProdutoController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->int]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

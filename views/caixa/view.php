@@ -106,6 +106,7 @@ use yii\widgets\DetailView;
                   </section>
                 </div>
             </section>
+          </section>
 
   
 

@@ -8,11 +8,12 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\Response;
 
 /**
  * VendaProdutoController implements the CRUD actions for vendaProduto model.
  */
-class VendaProdutoController extends Controller
+class VendaprodutoController extends Controller
 {
     public function behaviors()
     {
@@ -58,16 +59,15 @@ class VendaProdutoController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
+    public function actionCreate($idProduto, $idVenda)
+    {   Yii::$app->response->format = Response::FORMAT_JSON;
+        $modelProduto = \app\models\Produto::findOne($idProduto);
         $model = new vendaProduto();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        $model->id_produto = $idProduto;
+        $model->id_venda = $idVenda;
+        $model->valor = $modelProduto->preco;
+        if ($model->save()) {
+             return $modelProduto;
         }
     }
 

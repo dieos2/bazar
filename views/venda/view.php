@@ -80,7 +80,7 @@ jQuery(function(){
   url: "/vendaproduto/create?idProduto="+jQuery(this).val()+"&idVenda=<?php echo $model->id;?>",
   
 }).done(function(data) {
-  alert('Olhaaa'+ data.nome);
+ 
 });
       
    }); 

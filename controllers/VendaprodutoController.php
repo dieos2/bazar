@@ -67,6 +67,9 @@ class VendaprodutoController extends Controller
         $model->id_venda = $idVenda;
         $model->valor = $modelProduto->preco;
         if ($model->save()) {
+            $modelVenda = \app\models\Venda::findOne($idVenda);
+            $modelVenda->valor = $modelVenda->totalVenda;
+            $modelVenda->save();
              return $modelProduto;
         }
     }

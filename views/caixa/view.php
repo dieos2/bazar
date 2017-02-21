@@ -86,13 +86,13 @@ use yii\widgets\DetailView;
                       </a>
                       <span class="pull-left media-xs">
                         <i class="fa fa-sort icon-muted fa m-r-sm"></i>
-                        <a  href="#todo-2" data-toggle="class:text-lt text-danger">
+                        <a  href="#todo-'.$venda->id.'" data-toggle="class:text-lt text-danger">
                           <i class="fa fa-square-o fa-fw text"></i>
                           <i class="fa fa-check-square-o fa-fw text-active text-danger"></i>
                         </a>
                       </span>
-                      <div class="clear" id="todo-2">
-                       Cliente: '.$venda->idCliente->nome.'
+                      <div class="clear" id="todo-'.$venda->id.'">
+                      <a href="/venda/'.$venda->id.'"> Cliente: '.$venda->idCliente->nome.'</a>
                       </div>
                     </li>';
                     }

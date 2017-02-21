@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "produto".
  *
- * @property integer $int
+ * @property integer $id
  * @property string $nome
  * @property string $descricao
  * @property string $preco

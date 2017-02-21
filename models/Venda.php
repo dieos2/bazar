@@ -85,4 +85,12 @@ class Venda extends \yii\db\ActiveRecord
 //          return $this->hasMany(Inquilino::className(), ['id' => 'id_inquilino'])->viaTable('contrato_inquilino', ['id_contrato' => 'id']);
          
     }
+      public function getTotalVenda()
+    {  
+          $total = 0;
+          $produtos = $this->hasMany(Produto::className(), ['id' => 'id_produto'])->viaTable('venda_produto',['id_venda' => 'id']);
+         $total= $produtos->sum('preco');
+          return $total;
+         
+    }
 }

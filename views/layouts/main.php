@@ -199,7 +199,28 @@ $modelUsers =  User::findByUsername(Yii::$app->user->identity->username)
                <script src="/js/datatables/jquery.dataTables.min.js"></script>
                <script src="../../js/jquery.PrintArea.js" type="text/javascript"></script>
                <!-- select2 -->
-<script src="../../js/select2/select2.min.js"></script>
+                <script src="../../js/select2/select2.min.js"></script>
+
+            <!--QrCode-->
+          
+            <script type="text/javascript" src="../../js/qrcode/src/grid.js"></script>
+            <script type="text/javascript" src="../../js/qrcode/src/version.js"></script>
+            <script type="text/javascript" src="../../js/qrcode/src/detector.js"></script>
+            <script type="text/javascript" src="../../js/qrcode/src/formatinf.js"></script>
+            <script type="text/javascript" src="../../js/qrcode/src/errorlevel.js"></script>
+            <script type="text/javascript" src="../../js/qrcode/src/bitmat.js"></script>
+            <script type="text/javascript" src="../../js/qrcode/src/datablock.js"></script>
+            <script type="text/javascript" src="../../js/qrcode/src/bmparser.js"></script>
+            <script type="text/javascript" src="../../js/qrcode/src/datamask.js"></script>
+            <script type="text/javascript" src="../../js/qrcode/src/rsdecoder.js"></script>
+            <script type="text/javascript" src="../../js/qrcode/src/gf256poly.js"></script>
+            <script type="text/javascript" src="../../js/qrcode/src/gf256.js"></script>
+            <script type="text/javascript" src="../../js/qrcode/src/decoder.js"></script>
+            <script type="text/javascript" src="../../js/qrcode/src/qrcode.js"></script>
+            <script type="text/javascript" src="../../js/qrcode/src/findpat.js"></script>
+            <script type="text/javascript" src="../../js/qrcode/src/alignpat.js"></script>
+            <script type="text/javascript" src="../../js/qrcode/src/databr.js"></script>
+
          <script>
              
     jQuery(function(){

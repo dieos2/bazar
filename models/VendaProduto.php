@@ -35,7 +35,7 @@ class VendaProduto extends \yii\db\ActiveRecord
             [['id_produto', 'id_venda'], 'integer'],
             [['valor'], 'number'],
             [['id_venda'], 'exist', 'skipOnError' => true, 'targetClass' => Venda::className(), 'targetAttribute' => ['id_venda' => 'id']],
-            [['id_produto'], 'exist', 'skipOnError' => true, 'targetClass' => Produto::className(), 'targetAttribute' => ['id_produto' => 'int']],
+            [['id_produto'], 'exist', 'skipOnError' => true, 'targetClass' => Produto::className(), 'targetAttribute' => ['id_produto' => 'id']],
         ];
     }
 
@@ -65,6 +65,6 @@ class VendaProduto extends \yii\db\ActiveRecord
      */
     public function getIdProduto()
     {
-        return $this->hasOne(Produto::className(), ['int' => 'id_produto']);
+        return $this->hasOne(Produto::className(), ['id' => 'id_produto']);
     }
 }

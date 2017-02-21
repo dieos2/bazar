@@ -39,6 +39,8 @@ use app\models\Produto;
                         </div>
                     </div>   
                             </div>
+                        </div>
+                               <div class="row">
                              <div class="col-md-12">
                                      <div class="line"></div>
               <table class="table">
@@ -54,13 +56,16 @@ use app\models\Produto;
                     <?php foreach($model->produtos as $produto){
                         echo '<tr>
                     <td>1</td>
-                    <td>iPhone 5 32GB White & Silver (GSM) Unlocked</td>
-                    <td>$749.00</td>
-                    <td>$749.00</td>
+                    <td>'.$produto->nome.'</td>
+                    <td>'.$produto->preco.'</td>
+                    <td>'.$produto->preco.'</td>
                   </tr>';
                     }
 ?>
-                  
+                  <tr>
+                      <td colspan="3"></td>
+                      <td class="text-danger"><?php echo $model->totalVenda ?></td>
+                  </tr>
                 </tbody>
               </table>
                              </div>
@@ -80,7 +85,7 @@ jQuery(function(){
   url: "/vendaproduto/create?idProduto="+jQuery(this).val()+"&idVenda=<?php echo $model->id;?>",
   
 }).done(function(data) {
- 
+ location.reload();
 });
       
    }); 

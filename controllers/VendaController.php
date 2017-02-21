@@ -48,9 +48,7 @@ class VendaController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+       
     }
 
     /**
@@ -74,7 +72,12 @@ class VendaController extends Controller
         }
     }
 
-   
+    public function actionQrcode($id)
+    {
+     return $this->render('qrcode', [
+            'model' => $this->findModel($id),
+        ]);
+    }
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);

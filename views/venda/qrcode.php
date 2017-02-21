@@ -119,24 +119,8 @@ li a{
 }
 
 </style>
-<script src="../../js/qrcode/llqrcode.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
-<script src="../../js/qrcode/webqr.js" type="text/javascript"></script>
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-24451557-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 
 </head>
 
@@ -175,21 +159,10 @@ QR Code scanner
 <div id="result"></div>
 </td></tr>
 </table>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- webqr_2016 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-8418802408648518"
-     data-ad-slot="2527990541"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
+
 </div>&nbsp;
-<div id="footer">
-<img style="position:relative;top:0px;left:0px;margin:0;padding:0;" src="comodo_secure_seal_100x85_transp.png"/>
-<h5 align="center">Copyright &copy; 2011 <a target="_blank" href="http://www.lazarsoft.info">Lazar Laszlo</a></h5>
-</div>
+
 </div>
 <canvas id="qr-canvas" width="800" height="600"></canvas>
 <script type="text/javascript">load();</script>

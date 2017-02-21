@@ -164,7 +164,11 @@ $modelUsers =  User::findByUsername(Yii::$app->user->identity->username)
                     <!-- /.aside -->
                     <section id="content">
                        
+<script src="../../js/qrcode/llqrcode.js" type="text/javascript"></script>
 
+
+
+<script src="../../js/qrcode/webqr.js" type="text/javascript"></script>
                 <?= $content ?>
 
 

@@ -91,19 +91,32 @@ use app\models\Setup;
       </div>
         <div class="modal-body" style="height: 400px;">
             <div id="mainbody">
-<div id="outdiv">
-</div>
-                <div id="result"></div>
-                <img class="selector" id="qrimg" src="cam.png" onclick="setimg()" align="right"/>
-                <img class="selector" id="webcamimg" src="vid.png" onclick="setwebcam()" align="left" />
-      </div>  </div>
+                <div id="conteudoqrcode">
+
+           
+               
+            </div>   <div id="result"></div>
+            </div>
+                    
+        </div>
     </div>
   </div>
 </div>
 <canvas id="qr-canvas" width="800" height="600"></canvas>
-<script type="text/javascript">load();</script>
+<script type="text/javascript"></script>
 <script>
 jQuery(function(){
+      
+  
+        $('#myModal').on('show.bs.modal', function (e) {
+            jQuery("#conteudoqrcode").html('<div id="outdiv"></div>');
+              load();
+});
+  $('#myModal').on('hide.bs.modal', function (e) {
+        jQuery("#outdiv").hide();
+                off();
+});
+
     
     jQuery("#select2-option").click(function(){
         debugger;

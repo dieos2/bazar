@@ -215,8 +215,8 @@ function setwebcam2(options)
         n.mozGetUserMedia({video: options, audio: false}, success, error);
     }
 
-    document.getElementById("qrimg").style.opacity=0.2;
-    document.getElementById("webcamimg").style.opacity=1.0;
+   // document.getElementById("qrimg").style.opacity=0.2;
+   // document.getElementById("webcamimg").style.opacity=1.0;
 
     stype=1;
     setTimeout(captureToCanvas, 500);

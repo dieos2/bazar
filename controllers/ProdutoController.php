@@ -149,7 +149,7 @@ class ProdutoController extends Controller
  public function actionQrcode($id)
     {
        
-        return QrCode::png('http://bazar.casadogui.com.br/produto/view/'.$id);
+        return QrCode::png($id);
     }
     /**
      * Finds the Produto model based on its primary key value.

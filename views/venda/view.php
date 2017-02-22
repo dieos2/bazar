@@ -115,6 +115,7 @@ use app\models\Setup;
 <canvas id="qr-canvas" width="800" height="600"></canvas>
 <script type="text/javascript"></script>
 <script>
+   var idVenda = <?php echo $model->id;?>;
 jQuery(function(){
       
   
@@ -129,13 +130,21 @@ jQuery(function(){
 
     
     jQuery("#select2-option").click(function(){
-        debugger;
-             $.ajax({
-  url: "/vendaproduto/create?idProduto="+jQuery(this).val()+"&idVenda=<?php echo $model->id;?>",
-  
-}).done(function(data) {
- location.reload();
-});
+ 
+
+var idProduto = jQuery(this).val();
+        adicionaProdutoVenda(idProduto,idVenda );
+
       
    }); 
-});</script>
+});
+function adicionaProdutoVenda(idProduto, idVenda){
+                 $.ajax({
+  url: "/vendaproduto/create?idProduto="+idProduto+"&idVenda="+idVenda,
+  
+}).done(function(data) {
+     $('#myModal').modal('toggle');
+ location.reload();
+});
+}
+</script>

@@ -108,7 +108,8 @@ function read(a)
 //        html+="<a target='_blank' href='"+a+"'>"+a+"</a><br>";
 //    html+="<b>"+htmlEntities(a)+"</b><br><br>";
 //    document.getElementById("result").innerHTML=html;
-  $('#myModal').modal('toggle');
+alert('pegou ' + a + "Venda " + idVenda);
+  
 var idProduto =a ;
 adicionaProdutoVenda(idProduto, idVenda );
     

@@ -66,12 +66,18 @@ class VendaprodutoController extends Controller
         $model->id_produto = $idProduto;
         $model->id_venda = $idVenda;
         $model->valor = $modelProduto->preco;
+        $modelProdutoCadastrado = vendaProduto::find()->where(['=', 'id_produto', $idProduto])->andWhere(['=', 'id_venda', $idVenda])->one();
+        if($modelProdutoCadastrado == null){
+        
         if ($model->save()) {
             $modelVenda = \app\models\Venda::findOne($idVenda);
             $modelVenda->valor = $modelVenda->totalVenda;
             $modelVenda->save();
              return $modelProduto;
         }
+        
+        }
+       
     }
 
     /**

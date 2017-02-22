@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\helpers\Url;
+use app\models\Setup;
 /* @var $this yii\web\View */
 /* @var $model app\models\Produto */
 
@@ -41,19 +42,19 @@ $this->params['breadcrumbs'][] = $this->title;
                           <div class="row">
                             <div class="col-xs-4">
                               <a href="#">
-                                <span class="m-b-xs h4 block ">R$ <?php echo floatval(str_replace('.', ',',$model->preco_custo)) ?></span>
+                                <span class="m-b-xs h4 block "><?php echo Setup::FormataMoeda($model->preco_custo) ?></span>
                                 <small class="text-muted">Custo</small>
                               </a>
                             </div>
                             <div class="col-xs-4">
                               <a href="#">
-                                <span class="m-b-xs h4 block">R$ <?php echo floatval(str_replace('.', ',',$model->preco)) ?></span>
+                                <span class="m-b-xs h4 block"><?php echo Setup::FormataMoeda($model->preco) ?></span>
                                 <small class="text-muted">Venda</small>
                               </a>
                             </div>
                             <div class="col-xs-4">
                               <a href="#">
-                                <span class="m-b-xs h4 block text-success">R$ <?php echo floatval(str_replace('.', ',', $model->preco - $model->preco_custo)) ?></span>
+                                <span class="m-b-xs h4 block text-success"><?php echo Setup::FormataMoeda($model->preco - $model->preco_custo) ?></span>
                                 <small class="text-muted">Lucro</small>
                               </a>
                             </div>
@@ -148,7 +149,7 @@ $this->params['breadcrumbs'][] = $this->title;
                           
                               <div class="col-xs-12" style="text-align: center">
                               <a href="#">
-                                  <span class="m-b-xs h4 block" style="font-size: 50px">R$ <?php echo floatval(str_replace('.', ',',$model->preco)) ?></span>
+                                  <span class="m-b-xs h4 block" style="font-size: 50px"><?php echo Setup::FormataMoeda($model->preco) ?></span>
                              
                               </a>
                             </div>

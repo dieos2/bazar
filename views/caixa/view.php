@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
+use app\models\Setup;
 /* @var $this yii\web\View */
 /* @var $model app\models\Caixa */
 
@@ -39,7 +39,7 @@ use yii\widgets\DetailView;
                     
                     </span>
                     <a class="clear" href="#">
-                      <span class="h3 block m-t-xs"><strong id="bugs"><?php echo $model->valor_abertura ?></strong></span>
+                        <span class="h3 block m-t-xs"><strong id="bugs"><?php echo Setup::FormataMoeda($model->valor_abertura) ?></strong></span>
                       <small class="text-muted text-uc">Abertura</small>
                     </a>
                   </div>
@@ -50,7 +50,7 @@ use yii\widgets\DetailView;
                     
                     </span>
                     <a class="clear" href="#">
-                      <span class="h3 block m-t-xs"><strong id="firers"> <?php echo $model->TotalVendas ?></strong></span>
+                      <span class="h3 block m-t-xs"><strong id="firers"> <?php echo Setup::FormataMoeda($model->TotalVendas) ?></strong></span>
                       <small class="text-muted text-uc">Total</small>
                     </a>
                   </div>
@@ -92,7 +92,9 @@ use yii\widgets\DetailView;
                         </a>
                       </span>
                       <div class="clear" id="todo-'.$venda->id.'">
-                      <a href="/venda/'.$venda->id.'"> Cliente: '.$venda->idCliente->nome.'</a>
+                      <a href="/venda/'.$venda->id.'"> Cliente: '.$venda->idCliente->nome.' </a>
+                          <a class="pull-right text-danger">Valor: '.$venda->totalVenda.'  </a>
+                               &nbsp;
                       </div>
                     </li>';
                     }

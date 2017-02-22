@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use app\models\Setup;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
@@ -54,8 +54,8 @@ $this->params['breadcrumbs'][] = $this->title;
                           '</td><td>
                             <a href="/produto/view/'.$model->id.'">'.$model->nome.'</a>
                           </td>
-                           <td class="text-warning">R$ '.floatval(str_replace('.', ',', $model->preco_custo)).'</td>
-                          <td class="text-success">R$ '.floatval(str_replace('.', ',', $model->preco)).'</td>';
+                           <td class="text-warning">'.Setup::FormataMoeda($model->preco_custo).'</td>
+                          <td class="text-success">'.Setup::FormataMoeda($model->preco).'</td>';
                          ?>
    <?php
                          echo '<td class="text-right">

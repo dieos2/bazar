@@ -34,7 +34,7 @@ class Setup extends \yii\db\ActiveRecord {
     const TIME_FORMATD = 'php:H:i:s';
 
     public static function DepoisDePegar($dateStr, $type = 'date', $format = null) {
-        if ($dateStr != '1970-01-01 00:00:00' && $dateStr != '') {
+        if ($dateStr != '1970-01-01 00:00:00' && $dateStr != '' && $dateStr != '0000-00-00 00:00:00') {
             if ($type === 'datetime') {
                 $fmt = ($format == null) ? self::DATETIME_FORMATD : $format;
             } elseif ($type === 'time') {

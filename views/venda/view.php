@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use app\models\Produto;
+use app\models\Setup;
 /* @var $this yii\web\View */
 /* @var $model app\models\venda */
 
@@ -22,11 +23,14 @@ use app\models\Produto;
                        <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12">
-                             <div class="form-group">
-                        <label class="col-sm-2 control-label">Produto</label>
+                             <div class="input-group">
+                           <div class="col-sm-2">
+                            <a href="#" class="btn btn-dark btn-rounded" data-toggle="modal" data-target="#myModal" >Escanear</a>
+                        </div>
+                        
                         <div class="col-sm-10">
                           <div class="m-b">
-                            <select id="select2-option" style="width:260px">
+                            <select id="select2-option"  style="width:260px">
                                  <?php
                                foreach (Produto::find()->all() as $produto){
                                   echo '<option value="'.$produto->id.'">'.$produto->nome.'</option>'; 
@@ -34,10 +38,13 @@ use app\models\Produto;
                                ?>
                               
                             </select>
+                            
                           </div>
                        
                         </div>
-                    </div>   
+                       
+                    </div>  
+                             
                             </div>
                         </div>
                                <div class="row">
@@ -57,14 +64,14 @@ use app\models\Produto;
                         echo '<tr>
                     <td>1</td>
                     <td>'.$produto->nome.'</td>
-                    <td>'.$produto->preco.'</td>
-                    <td>'.$produto->preco.'</td>
+                    <td>'.Setup::FormataMoeda($produto->preco).'</td>
+                    <td>'.Setup::FormataMoeda($produto->preco).'</td>
                   </tr>';
                     }
 ?>
                   <tr>
                       <td colspan="3"></td>
-                      <td class="text-danger"><?php echo $model->totalVenda ?></td>
+                      <td class="text-danger"><?php echo Setup::FormataMoeda($model->totalVenda) ?></td>
                   </tr>
                 </tbody>
               </table>
@@ -75,10 +82,24 @@ use app\models\Produto;
                 </div>
             </section>
         </section>
-
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        
+      </div>
+        <div class="modal-body" style="height: 400px;">
+<div id="outdiv">
+</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
 jQuery(function(){
+    
     jQuery("#select2-option").click(function(){
         debugger;
              $.ajax({

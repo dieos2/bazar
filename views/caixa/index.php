@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use app\models\Setup;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
@@ -24,18 +24,20 @@ $this->params['breadcrumbs'][] = $this->title;
                              
                         
                           <th>Abertura</th>
-                          <th>Fechamento</th>
-                            <th>Valor Abertura</th>
+                         
+                            <th>Valor Abertura</th> 
+                            <th>Fechamento</th>
                           <th>Valor Fechamento</th>
                           <th width="70"></th>
                         </tr>
                       </thead>
                       <tbody>
  <?php foreach($dataProvider->models as $model){
-   echo' <tr><td class=""><a href="/caixa/'.$model->id.'">'.$model->data_abertura.'</a></td>
-           <td>'.$model->data_fechamento.'</td>
-           <td>'.$model->valor_abertura.'</td>
-            <td>'.$model->valor_fechamento.'</td>
+   echo' <tr><td class=""><a href="/caixa/'.$model->id.'">'.Setup::DepoisDePegar($model->data_abertura).'</a></td>
+         
+           <td>'.Setup::FormataMoeda($model->valor_abertura).'</td>
+                 <td>'.Setup::DepoisDePegar($model->data_fechamento).'</td>
+            <td>'.  Setup::FormataMoeda($model->valor_fechamento).'</td>
              <td class="text-right">
                             <div class="btn-group">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-pencil"></i></a>

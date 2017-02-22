@@ -90,13 +90,18 @@ use app\models\Setup;
         
       </div>
         <div class="modal-body" style="height: 400px;">
+            <div id="mainbody">
 <div id="outdiv">
 </div>
-      </div>
+                <div id="result"></div>
+                <img class="selector" id="qrimg" src="cam.png" onclick="setimg()" align="right"/>
+                <img class="selector" id="webcamimg" src="vid.png" onclick="setwebcam()" align="left" />
+      </div>  </div>
     </div>
   </div>
 </div>
-
+<canvas id="qr-canvas" width="800" height="600"></canvas>
+<script type="text/javascript">load();</script>
 <script>
 jQuery(function(){
     

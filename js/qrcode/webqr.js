@@ -109,7 +109,9 @@ function read(a)
 //    html+="<b>"+htmlEntities(a)+"</b><br><br>";
 //    document.getElementById("result").innerHTML=html;
 
-  
+   var audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', '/audio/beep.mp3');
+     audioElement.play();
 var idProduto =a ;
 adicionaProdutoVenda(idProduto, idVenda );
     

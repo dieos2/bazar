@@ -121,7 +121,7 @@ jQuery(function(){
         $('#myModal').on('show.bs.modal', function (e) {
             jQuery("#conteudoqrcode").html('<div id="outdiv"></div>');
               load();
-             
+            
 });
   $('#myModal').on('hide.bs.modal', function (e) {
         jQuery("#outdiv").hide();

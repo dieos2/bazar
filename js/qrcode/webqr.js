@@ -110,7 +110,7 @@ function read(a)
 //    document.getElementById("result").innerHTML=html;
 alert("ho nos" + a )
    var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', '/audio/beep.mp3');
+    audioElement.setAttribute('src', 'http://bazar.casadogui.com.br/audio/beep.mp3');
      audioElement.play();
 var idProduto =a ;
 adicionaProdutoVenda(idProduto, idVenda );

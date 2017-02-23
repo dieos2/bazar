@@ -109,7 +109,7 @@ use app\models\Setup;
             <div id="mainbody">
                 <div id="conteudoqrcode">
 
-           
+           <div id="outdiv"></div>
                
             </div>   <div id="result"></div>
             </div>
@@ -125,13 +125,14 @@ use app\models\Setup;
 jQuery(function(){
    
         $('#myModal').on('show.bs.modal', function (e) {
-            jQuery("#conteudoqrcode").html('<div id="outdiv"></div>');
+            jQuery("#outdiv").show();
               load();
             
 });
   $('#myModal').on('hide.bs.modal', function (e) {
-        jQuery("#conteudoqrcode").html();
-              //  off();
+        jQuery("#qr-canvas").hide();
+         jQuery("#outdiv").hide();
+             
 });
 
     

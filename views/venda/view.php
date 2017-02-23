@@ -10,6 +10,9 @@ use app\models\Setup;
 
 ?>
 <style>
+    video{
+        width: 100%
+    };
     #outdiv
 {
     background-color: #000;
@@ -117,16 +120,14 @@ use app\models\Setup;
 <script>
    var idVenda = <?php echo $model->id;?>;
 jQuery(function(){
-       var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'http://bazar.casadogui.com.br/audio/beep.mp3');
-     audioElement.play();
+   
         $('#myModal').on('show.bs.modal', function (e) {
             jQuery("#conteudoqrcode").html('<div id="outdiv"></div>');
               load();
             
 });
   $('#myModal').on('hide.bs.modal', function (e) {
-        jQuery("#outdiv").hide();
+        jQuery("#conteudoqrcode").html();
               //  off();
 });
 

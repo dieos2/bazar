@@ -13,6 +13,9 @@ use app\models\Setup;
     video{
         width: 100%
     };
+    #qr-canvas{
+        display: none;
+    }
     #outdiv
 {
     background-color: #000;

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 20-Fev-2017 às 19:56
+-- Generation Time: 24-Fev-2017 às 18:21
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -118,7 +118,7 @@ INSERT INTO `perfil` (`id`, `nome`, `sobrenome`, `foto`, `sexo`, `data`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `produto` (
-  `int` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(150) NOT NULL,
   `descricao` varchar(500) NOT NULL,
   `preco` decimal(10,2) NOT NULL,
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `vendido` double NOT NULL,
   `preco_custo` decimal(10,2) NOT NULL,
   `id_categoria` int(11) NOT NULL,
-  PRIMARY KEY (`int`),
+  PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`),
   KEY `id_categoria` (`id_categoria`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `produto` (
 -- Extraindo dados da tabela `produto`
 --
 
-INSERT INTO `produto` (`int`, `nome`, `descricao`, `preco`, `data`, `id_user`, `foto`, `novo`, `vendido`, `preco_custo`, `id_categoria`) VALUES
+INSERT INTO `produto` (`id`, `nome`, `descricao`, `preco`, `data`, `id_user`, `foto`, `novo`, `vendido`, `preco_custo`, `id_categoria`) VALUES
 (12, 'Blusa Cinza', 'Blusa Cinza Manga longa', '10.00', '2017-02-14 18:46:30', 1, '554bca0921e9255c6a64347776892cf4.jpg', 0, 1, '5.00', 1),
 (14, 'Croped', 'Croped rosa ', '10.00', '2017-02-15 13:43:19', 1, '338c4b14bf17b5843cb54a58bbe5f085.jpg', 1, 1, '5.00', 3),
 (15, 'Blusa Manga', 'Manga longa Cinza', '5.00', '2017-02-15 14:58:59', 1, '8253d967ce30ef6fb95267ff19076b2b.jpg', 0, 1, '2.00', 1),
@@ -146,6 +146,28 @@ INSERT INTO `produto` (`int`, `nome`, `descricao`, `preco`, `data`, `id_user`, `
 (17, 'Conj. Em bengaline ', 'Conj. Em bengaline Rosa', '30.00', '2017-02-17 19:26:45', 1, '854599e91c53988114d716f320fd7484.jpg', 1, 1, '10.00', 6),
 (18, 'Conj. Em bengaline ', 'Conj. Em bengaline Rosa', '30.00', '2017-02-17 19:26:51', 1, '8537c6bb71b769f9064a89719fe1ddbe.jpg', 0, 1, '10.00', 6),
 (19, 'Moto x', 'Moto x usado', '180.00', '2017-02-20 12:48:08', 1, 'b01ec09122a41ba954eb90673ec5b547.jpg', 0, 1, '3.00', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tipo_venda`
+--
+
+CREATE TABLE IF NOT EXISTS `tipo_venda` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Extraindo dados da tabela `tipo_venda`
+--
+
+INSERT INTO `tipo_venda` (`id`, `nome`) VALUES
+(1, 'a vista'),
+(2, 'debito'),
+(3, 'credito'),
+(4, 'credito parcelado');
 
 -- --------------------------------------------------------
 
@@ -188,17 +210,21 @@ CREATE TABLE IF NOT EXISTS `venda` (
   `data` datetime NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `id_caixa` int(11) DEFAULT NULL,
+  `id_vendaTipo` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_cliente` (`id_cliente`),
-  KEY `id_caixa` (`id_caixa`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  KEY `id_caixa` (`id_caixa`),
+  KEY `id_vendaTipo` (`id_vendaTipo`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Extraindo dados da tabela `venda`
 --
 
-INSERT INTO `venda` (`id`, `valor`, `data`, `id_cliente`, `id_caixa`) VALUES
-(1, '15.00', '2017-02-20 00:00:00', 1, 1);
+INSERT INTO `venda` (`id`, `valor`, `data`, `id_cliente`, `id_caixa`, `id_vendaTipo`) VALUES
+(1, '10.00', '2017-02-20 00:00:00', 1, 1, 1),
+(2, '10.00', '2017-02-21 12:49:41', 1, 1, 2),
+(3, '20.00', '2017-02-24 13:10:24', 1, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -214,7 +240,17 @@ CREATE TABLE IF NOT EXISTS `venda_produto` (
   PRIMARY KEY (`id`),
   KEY `id_produto` (`id_produto`,`id_venda`),
   KEY `id_venda` (`id_venda`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
+
+--
+-- Extraindo dados da tabela `venda_produto`
+--
+
+INSERT INTO `venda_produto` (`id`, `id_produto`, `valor`, `id_venda`) VALUES
+(47, 12, '10.00', 3),
+(48, 14, '10.00', 3),
+(49, 12, '10.00', 2),
+(50, 14, '10.00', 1);
 
 --
 -- Constraints for dumped tables
@@ -238,14 +274,15 @@ ALTER TABLE `produto`
 --
 ALTER TABLE `venda`
   ADD CONSTRAINT `venda_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`),
-  ADD CONSTRAINT `venda_ibfk_2` FOREIGN KEY (`id_caixa`) REFERENCES `caixa` (`id`);
+  ADD CONSTRAINT `venda_ibfk_2` FOREIGN KEY (`id_caixa`) REFERENCES `caixa` (`id`),
+  ADD CONSTRAINT `venda_ibfk_3` FOREIGN KEY (`id_vendaTipo`) REFERENCES `tipo_venda` (`id`);
 
 --
 -- Limitadores para a tabela `venda_produto`
 --
 ALTER TABLE `venda_produto`
-  ADD CONSTRAINT `venda_produto_ibfk_2` FOREIGN KEY (`id_venda`) REFERENCES `venda` (`id`),
-  ADD CONSTRAINT `venda_produto_ibfk_1` FOREIGN KEY (`id_produto`) REFERENCES `produto` (`int`);
+  ADD CONSTRAINT `venda_produto_ibfk_1` FOREIGN KEY (`id_produto`) REFERENCES `produto` (`id`),
+  ADD CONSTRAINT `venda_produto_ibfk_2` FOREIGN KEY (`id_venda`) REFERENCES `venda` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

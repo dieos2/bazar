@@ -39,7 +39,8 @@ class Venda extends \yii\db\ActiveRecord
             [['id_cliente', 'id_caixa'], 'integer'],
             [['id_cliente'], 'exist', 'skipOnError' => true, 'targetClass' => Cliente::className(), 'targetAttribute' => ['id_cliente' => 'id']],
             [['id_caixa'], 'exist', 'skipOnError' => true, 'targetClass' => Caixa::className(), 'targetAttribute' => ['id_caixa' => 'id']],
-        ];
+            [['id_vendaTipo'], 'exist', 'skipOnError' => true, 'targetClass' => TipoVenda::className(), 'targetAttribute' => ['id_vendaTipo' => 'id']],
+            ];
     }
 
     /**
@@ -71,7 +72,13 @@ class Venda extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Caixa::className(), ['id' => 'id_caixa']);
     }
-
+/**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdVendaTipo()
+    {
+        return $this->hasOne(TipoVenda::className(), ['id' => 'id_vendaTipo']);
+    }
     /**
      * @return \yii\db\ActiveQuery
      */

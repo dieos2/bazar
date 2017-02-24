@@ -6,7 +6,7 @@ use app\models\Produto;
 use app\models\Setup;
 /* @var $this yii\web\View */
 /* @var $model app\models\venda */
-
+use yii\widgets\ActiveForm;
 
 ?>
 <style>
@@ -46,7 +46,8 @@ use app\models\Setup;
                         
                         <div class="col-sm-10">
                           <div class="m-b">
-                            <select id="select2-option"  style="width:260px">
+                            <select id="select2"  style="width:260px">
+                                <option value="">Escolha um Produto</option>
                                  <?php
                                foreach (Produto::find()->all() as $produto){
                                   echo '<option value="'.$produto->id.'">'.$produto->nome.'</option>'; 
@@ -90,6 +91,12 @@ use app\models\Setup;
                       <td class="text-danger"><?php echo Setup::FormataMoeda($model->totalVenda) ?></td>
                   </tr>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"></td>
+                        <td> <a href="#" class="btn btn-success btn-rounded" data-toggle="modal" data-target="#fechamentoModal" >Fechar Venda</a></td>
+                    </tr>
+                </tfoot>
               </table>
                              </div>
                         </div>
@@ -118,39 +125,77 @@ use app\models\Setup;
     </div>
   </div>
 </div>
+<div class="modal fade" id="fechamentoModal" tabindex="-1" role="dialog" aria-labelledby="fechamentoModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1>Escolha a forma de pagamento</h1>
+      </div>
+        <div class="modal-body" style="height: 400px;">
+            <div id="mainbody">
+                 <?php $form = ActiveForm::begin(); ?>
+<div class="col-sm-12">
+                            <!-- radio -->
+                            <div class="radio">
+                              <label class="radio-custom">
+                                <input type="radio" name="venda[id_TipoVenda]" checked="checked">
+                                <i class="fa fa-circle-o"></i>
+                                Item one checked
+                              </label>
+                            </div>
+                          
+                          </div>
+ 
+
+    <div class="form-group">
+        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Fechar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    </div>
+
+    <?php ActiveForm::end(); ?>
+            </div>
+                    
+        </div>
+    </div>
+  </div>
+</div>
 <canvas id="qr-canvas" width="800" height="600"></canvas>
-<script type="text/javascript"></script>
+
 <script>
    var idVenda = <?php echo $model->id;?>;
 jQuery(function(){
-   
+    jQuery("#select2").select2();
         $('#myModal').on('show.bs.modal', function (e) {
+            debugger;
             jQuery("#outdiv").show();
-              load();
-            
+              //load();
+           read(14);
 });
   $('#myModal').on('hide.bs.modal', function (e) {
+      debugger;
         jQuery("#qr-canvas").hide();
          jQuery("#outdiv").hide();
              
 });
 
     
-    jQuery("#select2-option").click(function(){
+    jQuery("#select2").click(function(){
  
-
-var idProduto = jQuery(this).val();
+debugger;
+        var idProduto = jQuery(this).val();
         adicionaProdutoVenda(idProduto,idVenda );
 
       
    }); 
 });
 function adicionaProdutoVenda(idProduto, idVenda){
-                 $.ajax({
+        debugger;     
+        $.ajax({
   url: "/vendaproduto/create?idProduto="+idProduto+"&idVenda="+idVenda,
   
 }).done(function(data) {
-     $('#myModal').modal('toggle');
+    debugger;
+     $('#myModal').modal('hide');
  location.reload();
 });
 }

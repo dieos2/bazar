@@ -77,7 +77,7 @@ class VendaprodutoController extends Controller
         }
         
         }
-       
+       return "já existe";
     }
 
     /**

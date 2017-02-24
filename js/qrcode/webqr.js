@@ -109,6 +109,7 @@ function read(a)
 //    html+="<b>"+htmlEntities(a)+"</b><br><br>";
 //    document.getElementById("result").innerHTML=html;
 //alert("ho nos" + a )
+debugger;
    var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'http://casadogui.com.br/beep.mp3');
      audioElement.play();
@@ -122,6 +123,7 @@ function isCanvasSupported(){
   return !!(elem.getContext && elem.getContext('2d'));
 }
 function success(stream) {
+    debugger;
     if(webkit)
         v.src = window.URL.createObjectURL(stream);
     else
@@ -143,6 +145,7 @@ function error(error) {
 
 function load()
 {
+    debugger;
 	if(isCanvasSupported() && window.File && window.FileReader)
 	{
 		initCanvas(800, 600);
@@ -231,6 +234,7 @@ function setwebcam2(options)
 
 function setimg()
 {
+    debugger;
 	document.getElementById("result").innerHTML="";
     if(stype==2)
         return;

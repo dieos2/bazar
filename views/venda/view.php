@@ -168,8 +168,8 @@ jQuery(function(){
         $('#myModal').on('show.bs.modal', function (e) {
             debugger;
             jQuery("#outdiv").show();
-              //load();
-           read(14);
+              load();
+     
 });
   $('#myModal').on('hide.bs.modal', function (e) {
       debugger;

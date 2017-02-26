@@ -133,27 +133,30 @@ use yii\widgets\ActiveForm;
         <h1>Escolha a forma de pagamento</h1>
       </div>
         <div class="modal-body" style="height: 400px;">
-            <div id="mainbody">
-                 <?php $form = ActiveForm::begin(); ?>
+          
+                
 <div class="col-sm-12">
                             <!-- radio -->
-                            <div class="radio">
+                            <?php  foreach (app\models\TipoVenda::find()->all() as $tipovenda){
+                                  echo   '<div class="radio">
                               <label class="radio-custom">
-                                <input type="radio" name="venda[id_TipoVenda]" checked="checked">
+                                <input type="radio" name="venda[id_TipoVenda]" value="'.$tipovenda->id.'" checked="checked">
                                 <i class="fa fa-circle-o"></i>
-                                Item one checked
+                               '.$tipovenda->nome.'
                               </label>
-                            </div>
+                            </div>'; 
+                               }?>
+                          
                           
                           </div>
  
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Fechar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <button type="button" value="Fechar" class="btn btn-primary">Fechar</button>
     </div>
 
-    <?php ActiveForm::end(); ?>
-            </div>
+   
+            
                     
         </div>
     </div>

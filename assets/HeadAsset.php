@@ -24,7 +24,7 @@ class HeadAsset extends AssetBundle {
     public $css = [
     'css/app.v2.css',
     'css/font.css',
-        'confronto.css',
+       
         'css/colorpicker.css',
     'js/calendar/bootstrap_calendar.css',
  
@@ -34,15 +34,15 @@ class HeadAsset extends AssetBundle {
    
         'js/app.v2.js',
         'js/charts/easypiechart/jquery.easy-pie-chart.js',
-       'js/charts/sparkline/jquery.sparkline.min.js',
+       
         'js/charts/flot/jquery.flot.min.js',
-        'js/charts/flot/jquery.flot.tooltip.,min.js',
+        
         'js/charts/flot/jquery.flot.resize.js',
         'js/charts/flot/jquery.flot.grow.js',
         'js/charts/flot/demo.js',
         'js/calendar/bootstrap_calendar.js',
         
-       ' js/sortable/jquery.sortable.js',
+       
         'js/colorpicker.js'
     ];
 }

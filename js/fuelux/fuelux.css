@@ -17,7 +17,7 @@
 }
 .radio-custom > i.checked:before,
 .checkbox-custom > i.checked:before {
-  color: #92cf5c;
+  color: #f996a6;
 }
 .radio-custom > i.disabled:before,
 .checkbox-custom > i.disabled:before {

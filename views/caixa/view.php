@@ -74,29 +74,37 @@ use app\models\Setup;
     </span></header>
                     <div class="panel-body">
                         <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 ">
                  
                   <ul class="list-group gutter list-group-lg list-group-sp sortable">
                     <?php foreach($model->vendas as $venda){
-                          
+                          if($venda->id_vendaTipo != null){
                       
-                    echo '<li class="list-group-item box-shadow">
+                    echo '<li class="list-group-item box-shadow btn-success text-white">
                       <a href="#" class="pull-right" data-dismiss="alert">
                         <i class="fa fa-times icon-muted"></i>
                       </a>
-                      <span class="pull-left media-xs">
-                        <i class="fa fa-sort icon-muted fa m-r-sm"></i>
-                        <a  href="#todo-'.$venda->id.'" data-toggle="class:text-lt text-danger">
-                          <i class="fa fa-square-o fa-fw text"></i>
-                          <i class="fa fa-check-square-o fa-fw text-active text-danger"></i>
-                        </a>
-                      </span>
+                     
                       <div class="clear" id="todo-'.$venda->id.'">
-                      <a href="/venda/'.$venda->id.'"> Cliente: '.$venda->idCliente->nome.' </a>
-                          <a class="pull-right text-danger">Valor: '.$venda->totalVenda.'  </a>
+                      <a href="/venda/'.$venda->id.'" class="text-white"> Cliente: '.$venda->idCliente->nome.' </a>|
+                          <a class="text-white ">Valor: '.$venda->totalVenda.'  </a>
+                               &nbsp;|
+                                <a class="text-white ">Pagamento: '.$venda->idVendaTipo->nome.'  </a>
+                      </div>
+                    </li>';
+                          }else{
+                               echo '<li class="list-group-item box-shadow ">
+                      <a href="#" class="pull-right" data-dismiss="alert">
+                        <i class="fa fa-times icon-muted"></i>
+                      </a>
+                     
+                      <div class="clear" id="todo-'.$venda->id.'">
+                      <a href="/venda/'.$venda->id.'" class=""> Cliente: '.$venda->idCliente->nome.' </a>|
+                          <a class=" text-danger">Valor: '.$venda->totalVenda.'  </a>
                                &nbsp;
                       </div>
                     </li>';
+                          }
                     }
                      ?>
                 </div>

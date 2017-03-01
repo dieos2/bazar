@@ -73,7 +73,18 @@ class VendaController extends Controller
             ]);
         }
     }
-
+public function actionFechamento($idVenda, $idVendaTipo)
+    {
+        $model = $this->findModel($idVenda);
+        $model->id_vendaTipo = $idVendaTipo;
+         
+        $model->save();
+        $modelCaixa = \app\models\Caixa::findOne($model->id_caixa);
+        $modelCaixa->valor_fechamento = $modelCaixa->TotalVendasFechada;
+        $modelCaixa->save();
+            return $model->id_caixa;
+       
+    }
     public function actionQrcode($id)
     {
      return $this->render('qrcode', [

@@ -54,6 +54,7 @@ class Venda extends \yii\db\ActiveRecord
             'data' => 'Data',
             'id_cliente' => 'Id Cliente',
             'id_caixa' => 'Id Caixa',
+            'id_vendaTipo' => 'Id VendaTipo'
         ];
     }
 

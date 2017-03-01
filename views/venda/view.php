@@ -41,7 +41,7 @@ use yii\widgets\ActiveForm;
                             <div class="col-md-12">
                              <div class="input-group">
                            <div class="col-sm-2">
-                            <a href="#" class="btn btn-dark btn-rounded" data-toggle="modal" data-target="#myModal" >Escanear</a>
+                            <a href="#" class="btn btn-success btn-rounded" data-toggle="modal" data-target="#myModal" >Escanear</a>
                         </div>
                         
                         <div class="col-sm-10">
@@ -70,24 +70,28 @@ use yii\widgets\ActiveForm;
               <table class="table">
                 <thead>
                   <tr>
-                    <th width="60">QT</th>
+                      <th width="30"></th>
+                    <th width="30">QT</th>
                     <th>DESCRIÇÂO</th>
                     <th width="140">UNI PREÇO</th>
                     <th width="90">TOTAL</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
                     <?php foreach($model->produtos as $produto){
                         echo '<tr>
+                             <td><a href="#" class="text-danger removeProduto" data-id="'.$produto->id.'">x</a></td>
                     <td>1</td>
                     <td>'.$produto->nome.'</td>
                     <td>'.Setup::FormataMoeda($produto->preco).'</td>
                     <td>'.Setup::FormataMoeda($produto->preco).'</td>
+                       
                   </tr>';
                     }
 ?>
                   <tr>
-                      <td colspan="3"></td>
+                      <td colspan="4"></td>
                       <td class="text-danger"><?php echo Setup::FormataMoeda($model->totalVenda) ?></td>
                   </tr>
                 </tbody>
@@ -139,8 +143,8 @@ use yii\widgets\ActiveForm;
                             <!-- radio -->
                             <?php  foreach (app\models\TipoVenda::find()->all() as $tipovenda){
                                   echo   '<div class="radio">
-                              <label class="radio-custom">
-                                <input type="radio" name="venda[id_TipoVenda]" value="'.$tipovenda->id.'" checked="checked">
+                              <label class="radio-custom" data-id="'.$tipovenda->id.'">
+                                <input type="radio" data-id="'.$tipovenda->id.'" name="radio" value="'.$tipovenda->id.'" >
                                 <i class="fa fa-circle-o"></i>
                                '.$tipovenda->nome.'
                               </label>
@@ -152,7 +156,7 @@ use yii\widgets\ActiveForm;
  
 
     <div class="form-group">
-        <button type="button" value="Fechar" class="btn btn-primary">Fechar</button>
+        <button id="btnfechavenda" type="button" value="Fechar" class="btn btn-success">Fechar</button>
     </div>
 
    
@@ -165,7 +169,7 @@ use yii\widgets\ActiveForm;
 <canvas id="qr-canvas" width="800" height="600"></canvas>
 
 <script>
-   var idVenda = <?php echo $model->id;?>;
+   var idVenda = '<?php echo $model->id;?>';
 jQuery(function(){
     jQuery("#select2").select2();
         $('#myModal').on('show.bs.modal', function (e) {
@@ -181,16 +185,47 @@ jQuery(function(){
              
 });
 
-    
+    jQuery("#btnfechavenda").click(function(){
+        
+    var idVendaTipo = jQuery("input[name=radio]:checked").val();
+        fechaVenda(idVenda, idVendaTipo);
+        
+    });   
+    jQuery(".removeProduto").click(function(){
+        
+    var idProduto = jQuery(this).attr('data-id');
+        removeProdutoVenda(idVenda, idProduto);
+        
+    });
     jQuery("#select2").click(function(){
  
 debugger;
         var idProduto = jQuery(this).val();
-        adicionaProdutoVenda(idProduto,idVenda );
+        adicionaProdutoVenda(idProduto,idVenda);
 
       
    }); 
-});
+   });
+function fechaVenda(idVenda, idVendaTipo){
+
+        debugger;     
+        $.ajax({
+  url: "/venda/fechamento?idVenda="+idVenda+"&idVendaTipo="+idVendaTipo,
+  
+}).done(function(data) {
+   location.href ='/caixa/'+data;
+});    
+};
+function removeProdutoVenda(idVenda, idProduto){
+
+        debugger;     
+        $.ajax({
+  url: "/vendaproduto/remove?idProduto="+idProduto+"&idVenda="+idVenda,
+  
+}).done(function(data) {
+  location.reload();
+});    
+};
 function adicionaProdutoVenda(idProduto, idVenda){
         debugger;     
         $.ajax({
@@ -201,5 +236,5 @@ function adicionaProdutoVenda(idProduto, idVenda){
      $('#myModal').modal('hide');
  location.reload();
 });
-}
+};
 </script>

@@ -79,7 +79,14 @@ class VendaprodutoController extends Controller
         }
        return "já existe";
     }
-
+ public function actionRemove($idProduto, $idVenda)
+    {
+     $modelProdutoCadastrado = vendaProduto::find()->where(['=', 'id_produto', $idProduto])->andWhere(['=', 'id_venda', $idVenda])->one();
+      $this->findModel($modelProdutoCadastrado->id)->delete();
+       $modelVenda = \app\models\Venda::findOne($idVenda);
+            $modelVenda->valor = $modelVenda->totalVenda;
+            $modelVenda->save();
+ }
     /**
      * Updates an existing vendaProduto model.
      * If update is successful, the browser will be redirected to the 'view' page.

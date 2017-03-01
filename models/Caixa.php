@@ -76,4 +76,14 @@ class Caixa extends \yii\db\ActiveRecord
     }
         return $vendas;
     }
+     public function getTotalVendasFechada()
+    {  
+         $vendas = 0;
+         foreach($this->hasMany(Venda::className(), ['id_caixa' => 'id'])->all() as $venda){
+        if($venda->id_vendaTipo){
+             $vendas = $vendas + $venda->valor;
+        }
+    }
+        return $vendas;
+    }
 }

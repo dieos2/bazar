@@ -38,7 +38,7 @@ $modelUsers =  User::findByUsername(Yii::$app->user->identity->username)
         <link rel="stylesheet" href="/js/select2/select2.css" type="text/css" />
         <link rel="stylesheet" href="/js/select2/theme.css" type="text/css" />
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
-
+        <link href="../../js/fuelux/fuelux.css" rel="stylesheet" type="text/css"/>
 
 
         <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -122,7 +122,7 @@ $modelUsers =  User::findByUsername(Yii::$app->user->identity->username)
                                             <li class="active">
                                                 <a href="/produto/" class="active">
                                                     <i class="fa fa-bolt icon">
-                                                        <b class="bg-danger"></b>
+                                                        <b class="bg-success"></b>
                                                     </i>  <span>Produto</span>
                                                 </a>
                                             </li>
@@ -131,7 +131,7 @@ $modelUsers =  User::findByUsername(Yii::$app->user->identity->username)
                                             <li class="">
                                                 <a href="/caixa/index/" class="active">
                                                     <i class="fa fa-dashboard icon">
-                                                        <b class="bg-danger"></b>
+                                                        <b class="bg-success"></b>
                                                     </i>  <span>Caixa</span>
                                                 </a>
                                             </li>
@@ -204,7 +204,7 @@ $modelUsers =  User::findByUsername(Yii::$app->user->identity->username)
                <script src="../../js/jquery.PrintArea.js" type="text/javascript"></script>
                <!-- select2 -->
                 <script src="../../js/select2/select2.min.js"></script>
-
+                <script src="../../js/fuelux/fuelux.js" type="text/javascript"></script>
           
 
          <script>

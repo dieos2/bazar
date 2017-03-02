@@ -90,6 +90,9 @@ class Produto extends \yii\db\ActiveRecord
      */ 
     public function getVendaProdutos() 
     { 
-        return $this->hasMany(VendaProduto::className(), ['id_produto' => 'id']);
+         return Produto::find()
+                ->joinWith('vendaProduto')
+                ->where(['vendaProduto.id_produto' => null])
+                ->all();
     } 
 }

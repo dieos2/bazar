@@ -77,8 +77,14 @@ public function actionFechamento($idVenda, $idVendaTipo)
     {
         $model = $this->findModel($idVenda);
         $model->id_vendaTipo = $idVendaTipo;
-         
+        foreach ($model->Produtos as $produto) 
+        {
+            $modelProduto = \app\models\Produto::findOne($produto->id);
+            $modelProduto->vendido = 0;
+            $modelProduto->save();
+        }
         $model->save();
+        
         $modelCaixa = \app\models\Caixa::findOne($model->id_caixa);
         $modelCaixa->valor_fechamento = $modelCaixa->TotalVendasFechada;
         $modelCaixa->save();

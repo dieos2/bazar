@@ -49,7 +49,9 @@ use yii\widgets\ActiveForm;
                             <select id="select2"  style="width:260px">
                                 <option value="">Escolha um Produto</option>
                                  <?php
-                               foreach (Produto::find()->all() as $produto){
+                               foreach (Produto::find()
+->innerJoinWith('VendaProduto', 'Produto.id = vendaProduto.productId')
+->all() as $produto){
                                   echo '<option value="'.$produto->id.'">'.$produto->nome.'</option>'; 
                                }
                                ?>

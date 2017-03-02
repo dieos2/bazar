@@ -84,4 +84,12 @@ class Produto extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'id_user']);
     }
+  
+     /** 
+     * @return \yii\db\ActiveQuery 
+     */ 
+    public function getVendaProdutos() 
+    { 
+        return $this->hasMany(VendaProduto::className(), ['id_produto' => 'id']);
+    } 
 }

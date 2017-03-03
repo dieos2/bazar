@@ -55,5 +55,31 @@ $this->params['breadcrumbs'][] = $this->title;
  ?>
                       </tbody>
                     </table>
-
+<div class="col-md-4">
+                  <section class="panel panel-default">
+                    <header class="panel-heading font-bold">Data graph</header>
+                  
+                    <div class="panel-body">
+                      <div>
+                        <span class="text-muted">Total:</span>
+                        <span class="h3 block">$2500.00</span>
+                      </div>
+                      <div class="line pull-in"></div>
+                      <div class="row m-t-sm">
+                        <div class="col-xs-4">
+                          <small class="text-muted block">Market</small>
+                          <span>$1500.00</span>
+                        </div>
+                        <div class="col-xs-4">
+                          <small class="text-muted block">Referal</small>
+                          <span>$600.00</span>
+                        </div>
+                        <div class="col-xs-4">
+                          <small class="text-muted block">Affiliate</small>
+                          <span>$400.00</span>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
 </div>

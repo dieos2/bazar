@@ -81,12 +81,10 @@ use app\models\Setup;
                           if($venda->id_vendaTipo != null){
                       
                     echo '<li class="list-group-item box-shadow btn-success text-white">
-                      <a href="#" class="pull-right" data-dismiss="alert">
-                        <i class="fa fa-times icon-muted"></i>
-                      </a>
+                     
                      
                       <div class="clear" id="todo-'.$venda->id.'">
-                      <a href="/venda/'.$venda->id.'" class="text-white"> Cliente: '.$venda->idCliente->nome.' </a>|
+                      <a href="#" class="text-white"> Cliente: '.$venda->idCliente->nome.' </a>|
                           <a class="text-white ">Valor: '.$venda->totalVenda.'  </a>
                                &nbsp;|
                                 <a class="text-white ">Pagamento: '.$venda->idVendaTipo->nome.'  </a>
@@ -94,7 +92,7 @@ use app\models\Setup;
                     </li>';
                           }else{
                                echo '<li class="list-group-item box-shadow ">
-                      <a href="#" class="pull-right" data-dismiss="alert">
+                      <a href="#" class="pull-right cancelaVenda" data-id="'.$venda->id.'" data-dismiss="alert">
                         <i class="fa fa-times icon-muted"></i>
                       </a>
                      
@@ -117,7 +115,27 @@ use app\models\Setup;
                 </div>
             </section>
           </section>
+<script>
+   var idVenda = '<?php echo $model->id;?>';
+jQuery(function(){
+     jQuery(".cancelaVenda").click(function(){
+        
+    var idVenda = jQuery(this).attr('data-id');
+        removeVenda(idVenda);
+        
+    });
+});
+function removeVenda(idVenda){
 
+        debugger;     
+        $.ajax({
+  url: "/venda/remove?idVenda="+idVenda,
+  
+}).done(function(data) {
+  location.reload();
+});    
+};
+</script>
   
 
 

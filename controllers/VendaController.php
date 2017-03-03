@@ -73,6 +73,15 @@ class VendaController extends Controller
             ]);
         }
     }
+    public function actionRemove($idVenda)
+    {
+     $modelProdutos = \app\models\VendaProduto::find()->where(['=', 'id_venda', $idVenda])->all();
+     foreach ($modelProdutos as $produto){
+         \app\models\VendaProduto::findOne($produto->id)->delete();
+     }
+       $modelVenda = \app\models\Venda::findOne($idVenda)->delete();
+            
+ }
 public function actionFechamento($idVenda, $idVendaTipo)
     {
         $model = $this->findModel($idVenda);

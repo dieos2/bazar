@@ -100,6 +100,10 @@ class ProdutoController extends Controller
                 }else{
                     $model->vendido = 1;
                 }
+                
+                if($model->descricao == null){
+                    $model->descricao = $model->nome;
+                } 
                 if ($model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
              }

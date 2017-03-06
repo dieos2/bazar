@@ -73,8 +73,8 @@ use yii\widgets\ActiveForm;
               <table class="table">
                 <thead>
                   <tr>
-                      <th width="30"></th>
-                    <th width="30">QT</th>
+                      <th width="60"></th>
+                    
                     <th>DESCRIÇÂO</th>
                     <th width="140">UNI PREÇO</th>
                     <th width="90">TOTAL</th>
@@ -85,7 +85,7 @@ use yii\widgets\ActiveForm;
                     <?php foreach($model->produtos as $produto){
                         echo '<tr>
                              <td><a href="#" class="text-danger removeProduto" data-id="'.$produto->id.'">x</a></td>
-                    <td>1</td>
+                    
                     <td>'.$produto->nome.'</td>
                     <td>'.Setup::FormataMoeda($produto->preco).'</td>
                     <td>'.Setup::FormataMoeda($produto->preco).'</td>
@@ -94,7 +94,7 @@ use yii\widgets\ActiveForm;
                     }
 ?>
                   <tr>
-                      <td colspan="4"></td>
+                      <td colspan="3"></td>
                       <td class="text-danger"><?php echo Setup::FormataMoeda($model->totalVenda) ?></td>
                   </tr>
                 </tbody>

@@ -39,7 +39,7 @@ use app\models\Setup;
                     
                     </span>
                     <a class="clear" href="#">
-                        <span class="h3 block m-t-xs"><strong id="firers"><?php echo app\models\Produto::find()->where(["=", "vendido", true])->sum("preco") ?></strong></span>
+                        <span class="h3 block m-t-xs"><strong id="firers"><?php echo Setup::FormataMoeda(app\models\Produto::find()->where(["=", "vendido", true])->sum("preco")) ?></strong></span>
                       <small class="text-muted text-uc">Prospec de Ganho</small>
                     </a>
                   </div>

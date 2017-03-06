@@ -9,8 +9,31 @@ use app\models\Setup;
 $this->title = 'Produtos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="produto-index">
-
+  <section class="vbox">          
+            <section class="scrollable padder">
+              <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
+                <li><a href="/produtos"><i class="fa fa-home"></i> Produtos</a></li>
+              </ul>
+            
+ <div class="m-b-sm"> 
+     <div class="btn-group" data-toggle="buttons">
+         <label class="btn btn-sm btn-info ">
+             <input type="checkbox" name="options"  class="filtro"><i class="fa fa-check text-active"></i>
+             <select id="categoria">
+                 <option value="0">Filtrar</option>
+                              <?php
+                               foreach (\app\models\Categoria::find()->all() as $categoria){
+                                   echo '<option value='.$categoria->id.'>'.$categoria->categoria.'</option>';
+                               }
+                              ?></select>
+             
+                           </label>
+             <label class="btn btn-sm btn-success novo <?php if($novo == 'true')echo 'active';?>"> 
+                 <input type="checkbox" name="novo" id="novo" class="filtro" ><i class="fa fa-check text-active"></i> Novo </label> 
+             <label class="btn btn-sm btn-primary vendido <?php if($vendido == 'true')echo 'active';?>">
+                 <input type="checkbox" name="vendido" id="vendido"  class="filtro"><i class="fa fa-check text-active"></i> Vendido</label> 
+     </div> 
+ </div>
     
 
    
@@ -78,6 +101,62 @@ $this->params['breadcrumbs'][] = $this->title;
                       </tbody>
                     </table>
                   </section>
- 
+                <script>
+                    jQuery(function(){
+                        jQuery("#categoria").val(<?php echo $idCategoria?>);
+                       
+                        <?php if($novo == "true"){
+                                              echo'jQuery("#novo").attr("checked","checked");';
+                     };
+?>
+                        <?php if($vendido == "true"){
+                            
+                         echo    'jQuery("#vendido").attr("checked","checked");';
+                        }
+?>
+                       
+                   
+                       
+                        jQuery(".novo").click(function(){
+                            debugger;
+                            
+                            var idCategoria = jQuery("#categoria").val();
+                            if("<?php echo $vendido?>" == "true"){
+                                var vendido ="true";
+                            }else if(jQuery("#vendido:checked").length > 0){
+                                var vendido ="true"
+                            };
+                              if("<?php echo $novo?>" == "true"){
+                                  var novo ="false";}
+                              else if(jQuery("#novo:checked").length < 1){
+                                  var novo ="true";};
+                            filtro(idCategoria, vendido, novo);
+                        });
+                           jQuery(".vendido").click(function(){
+                            var idCategoria = jQuery("#categoria").val();
+                              if("<?php echo $vendido?>" == "false"){ var vendido ="true";}else if(jQuery("#vendido:checked").length < 1){var vendido ="true";}
+                              if("<?php echo $novo?>" == "true"){ var novo ="true";}else if(jQuery("#novo:checked").length > 0){var novo ="true";};
+                           
+                            filtro(idCategoria, vendido, novo);
+                        });
+                         jQuery("#categoria").change(function(){
+                            var idCategoria = jQuery("#categoria").val();
+                            if("<?php echo $vendido?>" == "true"){
+                                var vendido ="true";
+                            }else if(jQuery("#vendido:checked").length > 0){
+                                var vendido ="true"
+                            };
+                              if("<?php echo $novo?>" == "true"){
+                                  var novo ="true";}
+                              else if(jQuery("#novo:checked").length < 1){
+                                  var novo ="true";};
+                            filtro(idCategoria, vendido, novo);
+                        });
+                    })
+                    function filtro(idCategoria, vendido, novo){
+     debugger;
+   
+ location.href="/produto/index?idCategoria="+idCategoria+"&vendido="+vendido+"&novo="+novo+""
 
-</div>
+                    };
+                    </script>

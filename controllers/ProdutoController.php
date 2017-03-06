@@ -46,14 +46,31 @@ class ProdutoController extends Controller
      * Lists all Produto models.
      * @return mixed
      */
-    public function actionIndex()
-    {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Produto::find(),
+    public function actionIndex($idCategoria = null, $vendido = "false", $novo = "false" )
+    { 
+        
+        $query = Produto::find()->filterWhere(["<>", "id", 0]);
+         $dataProvider = new ActiveDataProvider([
+            'query' =>$query ,
         ]);
-
+         
+        if($idCategoria != 0){
+        $query->andFilterWhere(["=", "id_categoria", $idCategoria]);
+        }
+                if($vendido == "true"){
+       $query->andFilterWhere(["=", "vendido", 0]);
+        }
+                   if($novo == "true"){
+                      
+       $query->andFilterWhere(["=", "novo", 0]);
+                             
+                       
+                       }
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'idCategoria' => $idCategoria,
+            'vendido' => $vendido,
+            'novo' => $novo,
         ]);
     }
 

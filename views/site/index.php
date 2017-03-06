@@ -49,8 +49,8 @@ use app\models\Setup;
                       <i class="fa fa-clock-o fa-stack-1x text-white"></i>
                     </span>
                     <a class="clear" href="#">
-                      <span class="h3 block m-t-xs"><strong></strong></span>
-                      <small class="text-muted text-uc">Tempo Aberto</small>
+                      <span class="h3 block m-t-xs"><strong><?php echo Setup::FormataMoeda(app\models\Produto::find()->where(["=", "vendido", true])->sum("preco_custo")) ?></strong></span>
+                      <small class="text-muted text-uc">Valor Investido</small>
                     </a>
                   </div>
                 </div>

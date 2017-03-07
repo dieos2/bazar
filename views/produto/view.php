@@ -113,8 +113,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         
       </div>
-      <div class="modal-body">
-        <div class="wrapper" id="divPrint">
+        <div class="modal-body" style="">
+          <div class="wrapper" id="divPrint" >
                       <div class="clearfix m-b" style="
     align-items: center;
 ">
@@ -123,14 +123,14 @@ $this->params['breadcrumbs'][] = $this->title;
     text-align: center;
 ">
                               <img src="/images/AtelieInvertido.png" class="" style="
-    width: 70%;
-    padding-left: 33%;
+    width: 60%;
+    padding-left: 40%;
 ">
                           </a>
                           <div class="clear" style="
     text-align: center;
 ">
-                            <div class="h3 m-t-xs m-b-xs"><?php echo $model->nome ?></div>
+                              <div class="h3 m-t-xs m-b-xs" style="font-size: 20px"><?php echo $model->nome ?></div>
                             <small class="text-muted"><i class="fa fa-tag"></i><?php echo $model->idCategoria->categoria ?> </small>
                              <?php
                          if($model->novo){
@@ -144,12 +144,12 @@ $this->params['breadcrumbs'][] = $this->title;
                          
                           </div>                
                         </div>
-                        <div class="panel wrapper panel-success">
+              <div class="panel wrapper panel-success" style="padding: 6px; margin-bottom: 0px;">
                           <div class="row">
                           
                               <div class="col-xs-12" style="text-align: center">
                               <a href="#">
-                                  <span class="m-b-xs h4 block" style="font-size: 50px"><?php echo Setup::FormataMoeda($model->preco) ?></span>
+                                  <span class="m-b-xs h4 block" style="font-size: 30px"><?php echo Setup::FormataMoeda($model->preco) ?></span>
                              
                               </a>
                             </div>
@@ -160,7 +160,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div>
                           <small class="text-uc text-xs text-muted"></small>
                           <p class="m-t-sm">
-                              <img style="width: 100%" src="<?= Url::to(['produto/qrcode/'.$model->id.''])?>" />
+                              <img style="    width: 40%;
+    margin-left: 30%;" src="<?= Url::to(['produto/qrcode/'.$model->id.''])?>" />
                           </p>
                           <div class="line"></div>
                         </div>

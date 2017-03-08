@@ -40,7 +40,24 @@ class CaixaController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-
+ public function actionFecha($idCaixa)
+    {
+      $model = $this->findModel($idCaixa);
+      $model->data_fechamento = date("Y-m-d H:i:s");
+      $modelVenda = \app\models\Venda::find()->where(["=", "id_caixa", $model->id])->all();
+      foreach ($modelVenda as $venda){
+          if(!$venda->id_vendaTipo){
+          $produtos = \app\models\VendaProduto::find()->where(["=","id_venda",$venda->id])->all();
+          foreach ($produtos as $produto){
+              $produto->delete();
+          }
+          $venda->delete();
+          }
+      }
+      $model->valor_fechamento = $model->totalVendasFechada;
+      $model->save();
+      return "Caixs Fechado";
+    }
     /**
      * Displays a single Caixa model.
      * @param integer $id

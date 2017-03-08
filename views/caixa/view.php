@@ -68,11 +68,11 @@ use app\models\Setup;
               </section>
                   <div class="row">
                 <div class="col-md-12">
-                  <section class="panel panel-default">
+                  <section class="panel panel-default panel-dark">
                     <header class="panel-heading font-bold">Vendas  <span class="label  pull-right"> 
                             <a class="btn btn-success" style="display: initial  !important; " href="/venda/create/<?php echo $model->id ?>">Nova Venda</a>
     </span></header>
-                    <div class="panel-body">
+                    <div class="panel-body ">
                         <div class="row">
                 <div class="col-md-12 ">
                  
@@ -110,7 +110,10 @@ use app\models\Setup;
               </div>
                      
                      
+                          <span class="label  pull-right"> <a href="#" id="fechacaixa" data-id="<?php echo $model->id?>" class="btn btn-info ">Fechar Caixa</a></span>
+                     
                     </div>
+                      
                   </section>
                 </div>
             </section>
@@ -124,6 +127,13 @@ jQuery(function(){
         removeVenda(idVenda);
         
     });
+
+ jQuery("#fechacaixa").click(function(){
+        
+    var idCaixa = jQuery(this).attr('data-id');
+        fechaCaixa(idCaixa);
+        
+    });
 });
 function removeVenda(idVenda){
 
@@ -133,6 +143,16 @@ function removeVenda(idVenda){
   
 }).done(function(data) {
   location.reload();
+});    
+};
+function fechaCaixa(idCaixa){
+
+        debugger;     
+        $.ajax({
+  url: "/caixa/fecha?idCaixa="+idCaixa,
+  
+}).done(function(data) {
+  location.href="/caixa";
 });    
 };
 </script>

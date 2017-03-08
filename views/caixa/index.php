@@ -28,9 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="row">
          <?php foreach($dataProvider->models as $model){
 echo '<div class="col-md-4">
-                 <section class="panel panel-default '; if($model->data_fechamento != "0000-00-00 00:00:00"){echo 'panel-success';}else{echo 'panel-info';};
+                 <section class="panel panel-default '; if($model->data_fechamento != "0000-00-00 00:00:00" && $model->data_fechamento != Null){echo 'panel-success';}else{echo 'panel-info';};
                  echo '">
-                    <header class="panel-heading font-bold">';if($model->data_fechamento != "0000-00-00 00:00:00"){echo '<a href="/caixa/'.$model->id.'">Fechado</a>';}else{echo '<a href="/caixa/'.$model->id.'">Aberto</a>';};
+                    <header class="panel-heading font-bold">';if($model->data_fechamento != "0000-00-00 00:00:00" && $model->data_fechamento != Null){echo '<a href="/caixa/'.$model->id.'">Fechado</a>';}else{echo '<a href="/caixa/'.$model->id.'">Aberto</a>';};
                    echo '</header>
                   
                     <div class="panel-body">
@@ -49,7 +49,7 @@ echo '<div class="col-md-4">
                           <span>'.Setup::DepoisDePegar($model->data_abertura).'</span>
                         </div>
                         <div class="col-xs-4">
-                          <small class="text-muted block">Data Fechamento</small>
+                          <small class="text-muted block">Encerrado</small>
                           <span>'.Setup::DepoisDePegar($model->data_fechamento).'</span>
                         </div>
                       </div>

@@ -123,8 +123,8 @@ $this->params['breadcrumbs'][] = $this->title;
     text-align: center;
 ">
                               <img src="/images/AtelieInvertido.png" class="" style="
-    width: 60%;
-    padding-left: 40%;
+   width: 120px;
+    margin-left: 190px;
 ">
                           </a>
                           <div class="clear" style="
@@ -144,7 +144,7 @@ $this->params['breadcrumbs'][] = $this->title;
                          
                           </div>                
                         </div>
-              <div class="panel wrapper panel-success" style="padding: 6px; margin-bottom: 0px;">
+              <div class="panel wrapper panel-success" style="padding: 6px; margin-bottom: 0px;  border: solid 1px #000 !important;">
                           <div class="row">
                           
                               <div class="col-xs-12" style="text-align: center">
@@ -160,8 +160,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div>
                           <small class="text-uc text-xs text-muted"></small>
                           <p class="m-t-sm">
-                              <img style="    width: 40%;
-    margin-left: 30%;" src="<?= Url::to(['produto/qrcode/'.$model->id.''])?>" />
+                              <img style="    width: 190px;
+    margin-left: 160px;" src="<?= Url::to(['produto/qrcode/'.$model->id.''])?>" />
                           </p>
                           <div class="line"></div>
                         </div>

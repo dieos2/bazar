@@ -160,8 +160,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div>
                           <small class="text-uc text-xs text-muted"></small>
                           <p class="m-t-sm">
-                              <img style="    width: 60%;
-    margin-left: 20%;" src="<?= Url::to(['produto/qrcode/'.$model->id.''])?>" />
+                              <img style="    width: 80%;
+    margin-left: 10%;" src="<?= Url::to(['produto/qrcode/'.$model->id.''])?>" />
                           </p>
                           <div class="line"></div>
                         </div>

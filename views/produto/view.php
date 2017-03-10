@@ -123,8 +123,8 @@ $this->params['breadcrumbs'][] = $this->title;
     text-align: center;
 ">
                               <img src="/images/AtelieInvertido.png" class="" style="
-   width: 120px;
-    margin-left: 190px;
+   width: 40%;
+    margin-left: 30%;
 ">
                           </a>
                           <div class="clear" style="
@@ -160,8 +160,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div>
                           <small class="text-uc text-xs text-muted"></small>
                           <p class="m-t-sm">
-                              <img style="    width: 190px;
-    margin-left: 160px;" src="<?= Url::to(['produto/qrcode/'.$model->id.''])?>" />
+                              <img style="    width: 60%;
+    margin-left: 20%;" src="<?= Url::to(['produto/qrcode/'.$model->id.''])?>" />
                           </p>
                           <div class="line"></div>
                         </div>

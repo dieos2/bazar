@@ -146,8 +146,35 @@ class ProdutoController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            if(UploadedFile::getInstance($model, 'foto')){
+             $modelUP->imageFile = UploadedFile::getInstance($model, 'foto');
+            
+             $nome = md5(uniqid(""));
+                
+             if($modelUP->upload($nome)){
+                  $model->foto = $nome . '.jpg';
+             }
+            } 
+           if($model->novo == "on"){
+                $model->novo = 0;
+                    
+                }else{
+                    $model->novo = 1;
+                }
+                 if($model->vendido == "on"){
+                $model->vendido = 0;
+                    
+                }else{
+                    $model->vendido = 1;
+                }
+                
+                if($model->descricao == null){
+                    $model->descricao = $model->nome;
+                } 
+                if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+             }
         } else {
             return $this->render('update', [
                 'model' => $model,

@@ -121,7 +121,7 @@ $modelUsers =  User::findByUsername(Yii::$app->user->identity->username)
                                         <ul class="nav">
                                             <li class="active">
                                                 <a href="/produto/" class="active">
-                                                    <i class="fa fa-bolt icon">
+                                                    <i class="fa fa-gift icon">
                                                         <b class="bg-success"></b>
                                                     </i>  <span>Produto</span>
                                                 </a>
@@ -130,7 +130,7 @@ $modelUsers =  User::findByUsername(Yii::$app->user->identity->username)
                                            
                                             <li class="">
                                                 <a href="/caixa/index/" class="active">
-                                                    <i class="fa fa-dashboard icon">
+                                                    <i class="fa fa-money icon">
                                                         <b class="bg-success"></b>
                                                     </i>  <span>Caixa</span>
                                                 </a>

@@ -15,10 +15,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
    
 
-    <p>
-        
-      
-    </p>
+    <section class="vbox">          
+            <section class="scrollable padder">
+              <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
+                <li><a href="/produtos"><i class="fa fa-gift"></i> Produtos</a></li>
+                  <li><i class="fa fa-shopping-cart"></i> Detalhes</li>
+              </ul>
       <section id="vbox" class="vbox">
             <header class="header bg-white b-b b-light">
               <p>Detalhes Produto</p>

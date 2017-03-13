@@ -40,8 +40,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
       <section class="panel panel-default">
                     <header class="panel-heading">
-                      <span class="label bg-danger pull-right"> 
-        <?= Html::a('Create Produto', ['create']) ?>
+                     <span class="label  pull-right"> 
+                            <a class="btn btn-success" style="display: initial  !important; " href="/produto/create">Novo Produto</a>
     </span>
                       Produtos
                     </header>
@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
    echo' <tr><td class="">';             ?> 
                           <?php
                          if($model->novo){
-                             echo '<i class="fa fa-heart-o text-danger"></i>';
+                             echo '<i class="fa fa-star text-danger"></i>';
                          }else{
                              echo '<i class="fa fa-heart text-success"></i>';
                          }
@@ -71,7 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
                          if($model->vendido){
                              echo '<i class="fa fa-thumbs-down text-danger"></i> ';
                          }else{
-                             echo '<i class="fa fa-thumbs-up text-success"></i> ';
+                             echo '<i class="fa fa-truck text-success"></i> ';
                          }
                          ?><?php echo
                           '</td><td>

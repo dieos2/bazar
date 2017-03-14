@@ -16,8 +16,8 @@ use app\models\Setup;
           <section class="vbox">          
             <section class="scrollable padder">
               <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
-                <li><a href="index.html"><i class="fa fa-home"></i> Caixa</a></li>
-                <li class="active">Aberto</li>
+                <li><a href="/caixa"><i class="fa fa-home"></i> Caixa</a></li>
+                 <li><a href="/caixa"><i class="fa fa-list-alt"></i> Vendas</a></li>
               </ul>
             
               <section class="panel panel-default">

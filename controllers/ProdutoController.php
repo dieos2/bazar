@@ -162,12 +162,7 @@ class ProdutoController extends Controller
                 }else{
                     $model->novo = 1;
                 }
-                 if($model->vendido == "on"){
-                $model->vendido = 0;
-                    
-                }else{
-                    $model->vendido = 1;
-                }
+                
                 
                 if($model->descricao == null){
                     $model->descricao = $model->nome;

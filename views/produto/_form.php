@@ -10,7 +10,7 @@ use app\models\Categoria;
           
             <section class="scrollable padder">
     <div class="m-b-md">
-                <h3 class="m-b-none">Produtos</h3>
+              
               </div>
               <div class="row">
                 <div class="col-sm-6">
@@ -23,19 +23,17 @@ use app\models\Categoria;
     <?= $form->field($model, 'foto')->fileInput() ?>
     <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
                         <div class="form-group field-produto-nome required"> 
-      <button data-toggle="dropdown" class="btn btn-sm btn-default dropdown-toggle">
-                            <span class="dropdown-label">Categoria</span> 
-                            <span class="caret"></span>
-                          </button>
-                          <ul class="dropdown-menu dropdown-select">
-                              <?php
+                            <select id="categorias" name="Produto[id_categoria]" class="btn btn-sm btn-info">
+                                 <?php
                                foreach (Categoria::find()->all() as $categoria){
-                                   echo '<li class=""><a href="#"><input type="radio" name="Produto[id_categoria]" checked="" value='.$categoria->id.'>'.$categoria->categoria.'</a></li>';
-                               }
+                                  
+                                   echo     '<option value="'.$categoria->id.'">'.$categoria->categoria.' </option>';
+                               
+                               
+                                   }
                               ?>
-                              
-                             
-                          </ul>
+                            </select>
+    
                         </div>
                   
     <?= $form->field($model, 'descricao')->textInput(['maxlength' => true]) ?>
@@ -47,24 +45,19 @@ use app\models\Categoria;
                       <label class="col-sm-2 control-label">Novo</label>
                       <div class="col-sm-10">
                         <label class="switch">
-                        <input type="checkbox" id="produto-novo" name="Produto[novo]" >
+                            <?php if($model->novo){
+                                 echo'<input type="checkbox" id="produto-novo" checked="checked" name="Produto[novo]" >';
+                            }else
+                            {
+                             echo '<input type="checkbox" id="produto-novo" checked="" name="Produto[novo]" >';
+                            }
+?>
+                           
                           <span></span>
                         </label>
                       </div>
                     </div>
-   <?= $model->isNewRecord?'':'<div class="form-group">
-                      <label class="col-sm-2 control-label">Vendido</label>
-                      <div class="col-sm-10">
-                        <label class="switch">
-                        <input type="checkbox" id="produto-vendido" name="Produto[vendido]" >
-                          <span></span>
-                        </label>
-                      </div>
-                    </div>' 
-   
-       
-   
-  ?>
+  
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Criar' : 'Editar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
@@ -78,7 +71,11 @@ use app\models\Categoria;
               </div>
     </section>
           
- 
+<script>
+jQuery(function(){
+    jQuery("#categorias").val(<?php echo $model->id_categoria ?>)
+    
+});</script>
 
 
    

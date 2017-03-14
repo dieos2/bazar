@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <section class="scrollable padder">
               <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
                 <li><a href="/caixa"><i class="fa fa-home"></i> Caixa</a></li>
-                <li class="active">Lista</li>
+                
               </ul>
 
      

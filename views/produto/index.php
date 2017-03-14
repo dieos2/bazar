@@ -17,9 +17,9 @@ $this->params['breadcrumbs'][] = $this->title;
             
  <div class="m-b-sm"> 
      <div class="btn-group" data-toggle="buttons">
-         <label class="btn btn-sm btn-info ">
-             <input type="checkbox" name="options"  class="filtro"><i class="fa fa-check text-active"></i>
-             <select id="categoria">
+         
+            
+             <select id="categoria" class="btn btn-sm btn-info">
                  <option value="0">Filtrar</option>
                               <?php
                                foreach (\app\models\Categoria::find()->all() as $categoria){
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                }
                               ?></select>
              
-                           </label>
+                           
              <label class="btn btn-sm btn-success novo <?php if($novo == 'true')echo 'active';?>"> 
                  <input type="checkbox" name="novo" id="novo" class="filtro" ><i class="fa fa-check text-active"></i> Novo </label> 
              <label class="btn btn-sm btn-primary vendido <?php if($vendido == 'true')echo 'active';?>">

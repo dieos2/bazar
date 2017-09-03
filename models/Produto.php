@@ -66,7 +66,8 @@ class Produto extends \yii\db\ActiveRecord
             'novo' => 'Novo',
             'vendido' => 'Vendido',
             'preco_custo' => 'Preco Custo',
-            'id_categoria' => 'Id Categoria',
+            'id_categoria' => 'Id Categoria'
+           
         ];
     }
 

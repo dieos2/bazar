@@ -14,6 +14,7 @@ use yii\web\UploadedFile;
 use app\models\User;
 use dosamigos\qrcode\formats\MailTo;
 use dosamigos\qrcode\QrCode;
+use yii\data\Pagination;
 /**
  * ProdutoController implements the CRUD actions for Produto model.
  */
@@ -49,11 +50,15 @@ class ProdutoController extends Controller
     public function actionIndex($idCategoria = null, $vendido = "false", $novo = "false" )
     { 
         
-        $query = Produto::find()->filterWhere(["<>", "id", 0]);
-         $dataProvider = new ActiveDataProvider([
-            'query' =>$query ,
-        ]);
-         
+//        $query = Produto::find()->orderBy(['vendido'=>SORT_DESC]);
+//         $dataProvider = new ActiveDataProvider([
+//            'query' =>$query ,
+//        ]);
+         $query = Produto::find()->orderBy(['vendido'=>SORT_DESC]);
+  
+ 
+        
+        
         if($idCategoria != 0){
         $query->andFilterWhere(["=", "id_categoria", $idCategoria]);
         }
@@ -66,11 +71,17 @@ class ProdutoController extends Controller
                              
                        
                        }
+                         $countQuery = clone $query;
+    $pages = new Pagination(['totalCount' => $countQuery->count()]);
+    $models = $query->offset($pages->offset)
+        ->limit($pages->limit)
+        ->all();
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'models' => $models,
             'idCategoria' => $idCategoria,
             'vendido' => $vendido,
             'novo' => $novo,
+            'pages'  => $pages
         ]);
     }
 

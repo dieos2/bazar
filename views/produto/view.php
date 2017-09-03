@@ -143,6 +143,7 @@ $this->params['breadcrumbs'][] = $this->title;
                          ?>
                                              
                             <small><i class="fa fa-tag"></i> <?php echo $model->descricao ?></small>
+                            <small><i class="fa fa-tag"></i>cod: <?php echo $model->id ?></small>
                          
                           </div>                
                         </div>

@@ -54,7 +54,7 @@ use yii\widgets\ActiveForm;
                 ->joinWith('vendaProdutos')
                 ->where(['venda_produto.id_produto' => null])
                 ->all() as $produto){
-                                  echo '<option value="'.$produto->id.'">'.$produto->nome.'</option>'; 
+                                  echo '<option value="'.$produto->id.'">'.$produto->nome. '-'.$produto->descricao.'-'.Setup::FormataMoeda($produto->preco). '</option>'; 
                                }
                                ?>
                               

@@ -1,4 +1,10 @@
 <?php
+/**
+ * @link http://www.yiiframework.com/
+ * @copyright Copyright (c) 2008 Yii Software LLC
+ * @license http://www.yiiframework.com/license/
+ */
+
 namespace yii\debug\actions\db;
 
 use yii\base\Action;
@@ -7,6 +13,9 @@ use yii\web\HttpException;
 
 /**
  * ExplainAction provides EXPLAIN information for SQL queries
+ *
+ * @author Laszlo <github@lvlconsultancy.nl>
+ * @since 2.0.6
  */
 class ExplainAction extends Action
 {
@@ -14,6 +23,7 @@ class ExplainAction extends Action
      * @var DbPanel
      */
     public $panel;
+
 
     public function run($seq, $tag)
     {

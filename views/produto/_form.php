@@ -40,6 +40,7 @@ use app\models\Categoria;
 
     <?= $form->field($model, 'preco_custo')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'preco')->textInput(['maxlength' => true]) ?>
+                        
                     
                         <div class="form-group">
                       <label class="col-sm-2 control-label">Novo</label>

@@ -19,7 +19,7 @@ use yii\helpers\ArrayHelper;
  *
  * ```php
  * use yii\bootstrap\NavBar;
- * use yii\widgets\Menu;
+ * use yii\bootstrap\Nav;
  *
  * NavBar::begin(['brandLabel' => 'NavBar Test']);
  * echo Nav::widget([
@@ -100,9 +100,6 @@ class NavBar extends Widget
         } else {
             Html::addCssClass($this->options, ['widget' => 'navbar']);
         }
-        if (empty($this->options['role'])) {
-            $this->options['role'] = 'navigation';
-        }
         $options = $this->options;
         $tag = ArrayHelper::remove($options, 'tag', 'nav');
         echo Html::beginTag($tag, $options);
@@ -139,7 +136,7 @@ class NavBar extends Widget
             echo Html::endTag('div');
         }
         $tag = ArrayHelper::remove($this->options, 'tag', 'nav');
-        echo Html::endTag($tag, $this->options);
+        echo Html::endTag($tag);
         BootstrapPluginAsset::register($this->getView());
     }
 

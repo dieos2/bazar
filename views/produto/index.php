@@ -1,5 +1,5 @@
 <?php
-
+use yii\widgets\LinkPager;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use app\models\Setup;
@@ -45,6 +45,9 @@ $this->params['breadcrumbs'][] = $this->title;
     </span>
                       Produtos
                     </header>
+           <?php echo LinkPager::widget([
+    'pagination' => $pages,
+]);?>
                     <table class="table table-striped m-b-none">
                       <thead>
                         <tr>
@@ -58,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         </tr>
                       </thead>
                       <tbody>
-                           <?php foreach($dataProvider->models as $model){
+                           <?php foreach($models as $model){
    echo' <tr><td class="">';             ?> 
                           <?php
                          if($model->novo){
@@ -100,6 +103,9 @@ $this->params['breadcrumbs'][] = $this->title;
                       
                       </tbody>
                     </table>
+         <?php echo LinkPager::widget([
+    'pagination' => $pages,
+]);?>
                   </section>
                 <script>
                     jQuery(function(){

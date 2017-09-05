@@ -92,6 +92,8 @@ $this->params['breadcrumbs'][] = $this->title;
                          ?>
                           <small class="text-uc text-xs text-muted">Descrição</small>
                           <p><?php echo $model->descricao ?></p>
+                            <small class="text-uc text-xs text-muted">Tamanho</small>
+                          <p><?php echo $model->idTamanho->nome ?></p>
                           <div class="line"></div>
                           <small class="text-uc text-xs text-muted">Codigo</small>
                           <p class="m-t-sm">
@@ -144,7 +146,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                              
                             <small><i class="fa fa-tag"></i> <?php echo $model->descricao ?></small>
                             <small><i class="fa fa-tag"></i>cod: <?php echo $model->id ?></small>
-                         
+                           <small><i class="fa fa-tag"></i>Tam: <?php echo $model->idTamanho->nome ?></small>
                           </div>                
                         </div>
               <div class="panel wrapper panel-success" style="padding: 6px; margin-bottom: 0px;  border: solid 1px #000 !important;">

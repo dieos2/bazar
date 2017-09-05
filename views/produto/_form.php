@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\Categoria;
-
+use app\models\Tamanho
 ?>
 
           
@@ -24,7 +24,8 @@ use app\models\Categoria;
     <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
                         <div class="form-group field-produto-nome required"> 
                             <select id="categorias" name="Produto[id_categoria]" class="btn btn-sm btn-info">
-                                 <?php
+                              <option>Selecione uma categoria</option>
+   <?php
                                foreach (Categoria::find()->all() as $categoria){
                                   
                                    echo     '<option value="'.$categoria->id.'">'.$categoria->categoria.' </option>';
@@ -32,6 +33,12 @@ use app\models\Categoria;
                                
                                    }
                               ?>
+                            </select>
+    
+                        </div>
+                        <div class="form-group field-produto-nome required"> 
+                            <select id="tamanhos" name="Produto[id_tamanho]" class="btn btn-sm btn-info">
+                                <option>Selecione um tamanho</option>
                             </select>
     
                         </div>
@@ -75,6 +82,21 @@ use app\models\Categoria;
 <script>
 jQuery(function(){
     jQuery("#categorias").val(<?php echo $model->id_categoria ?>)
+    jQuery("#tamanhos").hide();
+    jQuery("#categorias").change(function(){
+         debugger;
+        $.get( "/tamanho/tamanhoporcategoria/"+$(this).val()).done(function( data )  {
+  var resultado;
+ debugger;
+        for(var i=0; data.length > i; i++){
+  resultado = resultado + "<option val='"+data[i].id+"'>"+data[i].nome+"</option>"
+        }
+        $("#tamanhos").html(resultado);
+ 
+});
+        jQuery("#tamanhos").show();
+        
+    });
     
 });</script>
 

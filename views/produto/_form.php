@@ -89,7 +89,7 @@ jQuery(function(){
   var resultado;
  debugger;
         for(var i=0; data.length > i; i++){
-  resultado = resultado + "<option val='"+data[i].id+"'>"+data[i].nome+"</option>"
+  resultado = resultado + "<option value='"+data[i].id+"'>"+data[i].nome+"</option>"
         }
         $("#tamanhos").html(resultado);
  
